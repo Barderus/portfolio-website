@@ -1,33 +1,232 @@
+export const siteIdentity = {
+  name: "Gabriel dos Reis",
+  role: "Data science, machine learning, and research portfolio",
+  location: "Chicago area",
+};
+
+const publicImage = (name) => `${import.meta.env.BASE_URL}images/${name}`;
+
 export const navItems = [
+  { label: "Home", path: "/" },
   { label: "Projects", path: "/projects" },
   { label: "Research", path: "/research" },
   { label: "Teaching", path: "/teaching" },
+  { label: "Writing", path: "/blog" },
+  { label: "About", path: "/about" },
+  { label: "Contact", path: "/contact" },
+];
+
+export const aboutLinks = [
   { label: "Workshops", path: "/workshops" },
   { label: "Certifications", path: "/certifications" },
   { label: "Leadership", path: "/leadership" },
-  { label: "Blog", path: "/blog" },
-  { label: "Other", path: "/other" },
+  { label: "Other Activities", path: "/other" },
 ];
 
-export const highlightStats = [
-  { value: "Data science", label: "Primary focus" },
-  { value: "Forecasting + aviation", label: "Research" },
-  { value: "Teaching + advising", label: "Leadership" },
-];
-
-export const contactLinks = [
-  {
-    label: "LinkedIn",
-    value: "gabriel-dos-reis",
-    href: "https://www.linkedin.com/in/gabriel-dos-reis-401502224",
+export const profileLinks = {
+  email: {
+    label: "Email",
+    href: "mailto:reis.sev@gmail.com",
+    value: "reis.sev@gmail.com",
+    placeholder: false,
   },
-  {
+  resume: {
     label: "Resume",
-    value: "Coming soon",
+    href: "",
+    value: "Available on request",
+    placeholder: true,
+  },
+  github: {
+    label: "GitHub",
+    href: "https://github.com/Barderus",
+    value: "github.com/Barderus",
+  },
+  linkedin: {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/gabriel-dos-reis-401502224",
+    value: "gabriel-dos-reis",
+  },
+};
+
+export const heroStats = [
+  { value: "ML + analytics", label: "Applied focus" },
+  { value: "Forecasting + aviation", label: "Research direction" },
+  { value: "Teaching + advising", label: "Community work" },
+];
+
+export const featuredProjects = [
+  {
+    title: "Recession Prediction with EPU and Machine Learning",
+    category: "Research",
+    description:
+      "A recession forecasting project centered on economic policy uncertainty, macroeconomic indicators, and interpretable machine learning models.",
+    tags: ["Python", "Time Series", "Macroeconomics", "ML"],
+    result:
+      "Frames recession risk as a practical decision-support problem rather than a purely academic forecast.",
+    visualType: "chart",
+    imageSrc: publicImage("recession_best_feature_per_model.png"),
+    links: [
+      { label: "View Project", to: "/research" },
+      {
+        label: "GitHub",
+        href: "https://github.com/Barderus/Recession_Prediction",
+        variant: "secondary",
+      },
+    ],
   },
   {
-    label: "Contact",
-    value: "Available on request",
+    title: "eVTOL / UAM Air Route Cost Analysis",
+    category: "Research",
+    description:
+      "Low-altitude route analysis around Chicago using population density, airspace constraints, flight-density costs, and A* pathfinding.",
+    tags: ["Geospatial", "Routing", "Aviation", "Optimization"],
+    result:
+      "Combines route planning with real-world operational constraints in a research-oriented aviation workflow.",
+    visualType: "route",
+    links: [
+      { label: "View Project", to: "/research" },
+      {
+        label: "GitHub",
+        href: "https://github.com/Barderus/eVTOL_Air_Route",
+        variant: "secondary",
+      },
+    ],
+  },
+  {
+    title: "March Madness Kaggle Prediction",
+    category: "Projects",
+    description:
+      "Tournament prediction built from regular-season data, engineered matchup features, and model comparison notebooks.",
+    tags: ["Sports Analytics", "Feature Engineering", "Python", "Modeling"],
+    result:
+      "Turns noisy matchup data into a structured prediction pipeline designed for fast experimentation.",
+    visualType: "bracket",
+    imageSrc: publicImage("march_madness_models_features.png"),
+    links: [
+      { label: "View Project", to: "/projects" },
+      {
+        label: "GitHub",
+        href: "https://github.com/Barderus/MarchMadness-Kaggle",
+        variant: "secondary",
+      },
+    ],
+  },
+  {
+    title: "TrustNet / Fake News Detection",
+    category: "Projects",
+    description:
+      "An explainable NLP tool that evaluates trustworthiness and surfaces why a piece of text was flagged by the model.",
+    tags: ["NLP", "Explainability", "Classification", "Misinformation"],
+    result:
+      "Emphasizes transparent scoring and readable model reasoning instead of a black-box output.",
+    visualType: "network",
+    links: [
+      { label: "View Project", to: "/projects" },
+      {
+        label: "GitHub",
+        href: "https://github.com/Barderus/TrustNet",
+        variant: "secondary",
+      },
+    ],
+  },
+];
+
+export const focusAreas = [
+  {
+    title: "Forecasting & Uncertainty",
+    description:
+      "I am interested in models that help people reason under uncertainty, especially when the cost of being wrong affects planning and policy.",
+    visualType: "chart",
+  },
+  {
+    title: "NLP & Misinformation",
+    description:
+      "I care about language systems that do more than classify text. They should also help users understand credibility, framing, and model reasoning.",
+    visualType: "network",
+  },
+  {
+    title: "Applied Data Systems",
+    description:
+      "I like end-to-end work that connects data pipelines, modeling, visualization, and decision support into something people can actually use.",
+    visualType: "dashboard",
+  },
+  {
+    title: "Teaching & Data Literacy",
+    description:
+      "Teaching matters to me because technical work becomes more useful when it is understandable, approachable, and shared well.",
+    visualType: "document",
+  },
+];
+
+export const homeHighlights = [
+  {
+    title: "Teaching",
+    description:
+      "Course support, assignment design, office hours, and project-based guidance for students learning technical material.",
+    tags: ["Mentorship", "Curriculum", "Student Support"],
+    visualType: "document",
+    links: [{ label: "Explore Teaching", to: "/teaching" }],
+  },
+  {
+    title: "Writing",
+    description:
+      "A personal writing space for reflection on projects, research, machine learning, and academic growth.",
+    tags: ["Blog", "Reflection", "Communication"],
+    visualType: "signal",
+    links: [{ label: "Visit Writing", to: "/blog" }],
+  },
+  {
+    title: "Leadership & Community",
+    description:
+      "Work that supports technical communities through advising, events, moderation, workshops, and judging.",
+    tags: ["Leadership", "Community", "Events"],
+    visualType: "constellation",
+    links: [{ label: "See About", to: "/about" }],
+  },
+];
+
+export const contactCards = [
+  {
+    title: "Email",
+    description: "Best for collaboration, teaching, research, or speaking opportunities.",
+    visualType: "document",
+    links: [
+      {
+        label: "Email",
+        href: profileLinks.email.href,
+        variant: "primary",
+        placeholder: profileLinks.email.placeholder,
+      },
+    ],
+    helper: profileLinks.email.value,
+  },
+  {
+    title: "Resume",
+    description: "Use this for a concise overview of projects, research, and teaching experience.",
+    visualType: "document",
+    links: [
+      {
+        label: "View Resume",
+        href: profileLinks.resume.href,
+        variant: "primary",
+        placeholder: profileLinks.resume.placeholder,
+      },
+    ],
+    helper: profileLinks.resume.value,
+  },
+  {
+    title: "GitHub",
+    description: "Code repositories for projects, research prototypes, and data-focused experiments.",
+    visualType: "dashboard",
+    links: [{ label: "Open GitHub", href: profileLinks.github.href }],
+    helper: profileLinks.github.value,
+  },
+  {
+    title: "LinkedIn",
+    description: "Professional profile and a direct way to follow updates or reach out.",
+    visualType: "signal",
+    links: [{ label: "Open LinkedIn", href: profileLinks.linkedin.href }],
+    helper: profileLinks.linkedin.value,
   },
 ];
 
@@ -36,52 +235,90 @@ export const pageContent = {
     title: "Projects",
     eyebrow: "Data products",
     intro:
-      "A selected set of data science and analytics projects. Each card is intentionally short so visitors can scan fast, then jump straight to the GitHub repo for the full implementation.",
+      "A selected set of data science and analytics projects. The cards stay concise so the portfolio feels scannable while still showing what each project is trying to solve.",
     cards: [
       {
         title: "March Madness Kaggle",
         meta: "Predictive modeling | sports analytics",
         description:
           "NCAA tournament prediction built from regular-season data, engineered matchup features, and model comparison notebooks.",
-        visualLabel: "Modeling preview",
-        linkLabel: "Open GitHub repo",
-        linkUrl: "https://github.com/Barderus/MarchMadness-Kaggle",
+        tags: ["Python", "Kaggle", "Feature Engineering", "Sports"],
+        result: "Built for rapid experimentation with matchup features and predictive baselines.",
+        visualType: "bracket",
+        imageSrc: publicImage("march_madness_models_features.png"),
+        links: [
+          {
+            label: "GitHub",
+            href: "https://github.com/Barderus/MarchMadness-Kaggle",
+          },
+        ],
       },
       {
         title: "Job Market Dashboard",
         meta: "Labor analytics | dashboard pipeline",
         description:
           "Multi-source analysis of U.S. tech hiring trends across roles, skills, salaries, and geography, with an interactive dashboard direction.",
-        visualLabel: "Dashboard preview",
-        linkLabel: "Open GitHub repo",
-        linkUrl: "https://github.com/Barderus/job-market-dashboard",
+        tags: ["Dashboards", "Labor Data", "Analytics", "Visualization"],
+        result:
+          "Designed to make broad job-market patterns easier to compare across roles and locations.",
+        visualType: "dashboard",
+        imageSrc: publicImage("job_market_salary_distribution_dashboard.png"),
+        links: [
+          {
+            label: "GitHub",
+            href: "https://github.com/Barderus/job-market-dashboard",
+          },
+        ],
       },
       {
         title: "Pokemon Analysis",
         meta: "Classification | feature engineering",
         description:
           "A playful but serious modeling project on what separates legendary Pokemon from the rest using stats, metadata, and leakage-safe pipelines.",
-        visualLabel: "Analysis preview",
-        linkLabel: "Open GitHub repo",
-        linkUrl: "https://github.com/Barderus/pokemon-analysis",
+        tags: ["Classification", "EDA", "Pipelines", "Python"],
+        result:
+          "Uses a familiar dataset to demonstrate disciplined modeling and leakage-aware feature work.",
+        visualType: "chart",
+        imageSrc: publicImage("pokemon_cluster.png"),
+        links: [
+          {
+            label: "GitHub",
+            href: "https://github.com/Barderus/pokemon-analysis",
+          },
+        ],
       },
       {
         title: "TrustNet",
         meta: "NLP | misinformation detection",
         description:
           "An explainable fake-news analysis tool that scores trustworthiness and surfaces why the model flagged the text the way it did.",
-        visualLabel: "Interface preview",
-        linkLabel: "Open GitHub repo",
-        linkUrl: "https://github.com/Barderus/TrustNet",
+        tags: ["NLP", "Explainability", "Trust Scoring", "ML"],
+        result:
+          "Keeps interpretability central so the system feels more useful than a one-number classification.",
+        visualType: "network",
+        links: [
+          {
+            label: "GitHub",
+            href: "https://github.com/Barderus/TrustNet",
+          },
+        ],
       },
       {
         title: "UFO Data Analysis",
         meta: "EDA | geospatial analysis | NLP",
         description:
           "Large-scale UFO sighting analysis using temporal trends, mapping, and text analysis to turn an unusual dataset into interpretable patterns.",
-        visualLabel: "Map or chart preview",
-        linkLabel: "Open GitHub repo",
-        linkUrl: "https://github.com/Barderus/UFO-Data-Analysis",
+        tags: ["Geospatial", "Text Analysis", "EDA", "Visualization"],
+        result:
+          "Transforms a novelty dataset into a serious exercise in exploratory analysis and communication.",
+        visualType: "constellation",
+        imageSrc: publicImage("ufo_map.png"),
+        links: [
+          {
+            label: "GitHub",
+            href: "https://github.com/Barderus/UFO-Data-Analysis",
+          },
+        ],
       },
     ],
   },
@@ -89,25 +326,40 @@ export const pageContent = {
     title: "Research",
     eyebrow: "Data-driven inquiry",
     intro:
-      "Two research tracks anchor the portfolio: economic forecasting and aviation systems. The summaries stay brief on purpose and point visitors to the GitHub repos for the full methodology and code.",
+      "Two research tracks anchor the portfolio: economic forecasting and aviation systems. Both focus on modeling under real constraints rather than purely theoretical exercises.",
     cards: [
       {
         title: "Recession Prediction",
         meta: "Macroeconomics | forecasting | machine learning",
         description:
           "A recession forecasting project built around economic policy uncertainty, macroeconomic indicators, and interpretable machine learning models.",
-        visualLabel: "Forecasting preview",
-        linkLabel: "Open GitHub repo",
-        linkUrl: "https://github.com/Barderus/Recession_Prediction",
+        tags: ["Forecasting", "Macroeconomics", "Interpretable ML", "Python"],
+        result:
+          "Treats recession prediction as an interpretable risk signal that supports clearer reasoning about uncertainty.",
+        visualType: "chart",
+        imageSrc: publicImage("recession_best_feature_per_model.png"),
+        links: [
+          {
+            label: "GitHub",
+            href: "https://github.com/Barderus/Recession_Prediction",
+          },
+        ],
       },
       {
         title: "eVTOL Air Route",
         meta: "Aviation research | routing | geospatial analysis",
         description:
           "Low-altitude route analysis around Chicago using population density, airspace constraints, flight-density costs, and A* pathfinding.",
-        visualLabel: "Route map preview",
-        linkLabel: "Open GitHub repo",
-        linkUrl: "https://github.com/Barderus/eVTOL_Air_Route",
+        tags: ["Aviation", "Geospatial", "Routing", "Optimization"],
+        result:
+          "Models route selection as a tradeoff between operational practicality, safety, and spatial cost.",
+        visualType: "route",
+        links: [
+          {
+            label: "GitHub",
+            href: "https://github.com/Barderus/eVTOL_Air_Route",
+          },
+        ],
       },
     ],
   },
@@ -115,19 +367,36 @@ export const pageContent = {
     title: "Teaching",
     eyebrow: "Instruction and mentorship",
     intro:
-      "My teaching experience centers on practical student support: grading, office hours, technical guidance, and assignment design that helps students apply concepts rather than just memorize them.",
+      "My teaching experience centers on practical student support: grading, office hours, technical guidance, and assignment design that helps students apply concepts rather than memorize them.",
     cards: [
       {
         title: "CIS 1230 | Database Application",
         meta: "TA support | databases | student guidance",
         description:
-          "Supported a relational database management course covering database design, creation, maintenance, forms, reports, queries, macros, and application development. Responsibilities included grading assignments, holding office hours, and answering student questions.",
+          "Supported a relational database management course covering database design, creation, maintenance, forms, reports, queries, macros, and application development.",
+        tags: ["Databases", "Office Hours", "Assessment", "Student Support"],
+        result:
+          "Focused on helping students connect database concepts to usable applications and course projects.",
+        visualType: "dashboard",
       },
       {
         title: "CIS 2571 | Introduction to Java",
         meta: "TA support | Java | project-based learning",
         description:
-          "Supported an introductory Java course covering encapsulation, class design, objects, polymorphism, and GUI components. In addition to grading, office hours, and student support, I created project-based assignments to help students learn through implementation.",
+          "Supported an introductory Java course covering encapsulation, class design, objects, polymorphism, and GUI components, while also creating project-based assignments.",
+        tags: ["Java", "Project-Based Learning", "TA Work", "Curriculum"],
+        result:
+          "Emphasized implementation-based learning so students could practice concepts through actual program design.",
+        visualType: "document",
+      },
+      {
+        title: "Workshops and Data Literacy",
+        meta: "Facilitation | technical communication | outreach",
+        description:
+          "Workshop sessions in approachable data tools, data literacy, and visual analytics that complement formal course support.",
+        tags: ["Workshops", "Data Literacy", "Facilitation"],
+        visualType: "signal",
+        links: [{ label: "View Workshops", to: "/workshops" }],
       },
     ],
   },
@@ -142,28 +411,36 @@ export const pageContent = {
         meta: "Saturday, October 11, 2025 | data literacy workshop",
         description:
           "Led a Humble Data workshop focused on practical, accessible data work and helping participants engage with data tools in a hands-on setting.",
-        visualLabel: "Workshop photo preview",
+        tags: ["Workshop", "Data Literacy", "Facilitation"],
+        visualType: "signal",
+        imageSrc: publicImage("humble_data_cod_2025.jpg"),
       },
       {
         title: "Humble Data Workshop | Lewis University",
         meta: "Saturday, November 22, 2025 | cross-campus workshop",
         description:
           "Ran the same Humble Data workshop at Lewis University, adapting the session for a different audience while keeping the emphasis on approachable data practice.",
-        visualLabel: "Workshop photo preview",
+        tags: ["Workshop", "Teaching", "Cross-Campus"],
+        visualType: "signal",
+        imageSrc: publicImage("humble_data_cod_2025.jpg"),
       },
       {
         title: "Orange Data Mining Workshop",
         meta: "Tuesday, April 14, 2026 | visual analytics workshop",
         description:
           "Introduced participants to Orange Data Mining through a guided workshop centered on visual workflows, data exploration, and approachable machine learning concepts.",
-        visualLabel: "Workshop photo preview",
+        tags: ["Visual Analytics", "Orange", "Workshop"],
+        visualType: "dashboard",
+        imageSrc: publicImage("orange_data_mining.jpg"),
       },
       {
         title: "Humble Data Workshop | College of DuPage | Spring 2026",
         meta: "Saturday, April 25, 2026 | repeat workshop",
         description:
           "Ran the Humble Data workshop again in Spring 2026, reinforcing core data literacy concepts through another live, hands-on session.",
-        visualLabel: "Workshop photo preview",
+        tags: ["Workshop", "Repeat Session", "Data Literacy"],
+        visualType: "signal",
+        imageSrc: publicImage("humble_data_cod_2026.jpg"),
       },
     ],
   },
@@ -171,16 +448,22 @@ export const pageContent = {
     title: "Certifications",
     eyebrow: "Formal upskilling",
     intro:
-      "I keep certifications selective and relevant. Right now, the focus is a single credential that directly supports the data analytics side of my portfolio.",
+      "I keep certifications selective and relevant. The emphasis is on credentials that directly support the analytical side of my portfolio.",
     cards: [
       {
         title: "Google Data Analytics Certificate",
         meta: "Google Career Certificates | data analytics",
         description:
           "Completed Google's eight-course data analytics program covering data cleaning, analysis, visualization, spreadsheets, SQL, R, and data-driven communication.",
-        linkLabel: "View credential",
-        linkUrl:
-          "https://www.credly.com/badges/87f1e441-a64b-4e6d-befc-7a3661d4bba1/linked_in_profile",
+        tags: ["SQL", "R", "Visualization", "Analytics"],
+        visualType: "document",
+        links: [
+          {
+            label: "View Credential",
+            href:
+              "https://www.credly.com/badges/87f1e441-a64b-4e6d-befc-7a3661d4bba1/linked_in_profile",
+          },
+        ],
       },
     ],
   },
@@ -188,36 +471,34 @@ export const pageContent = {
     title: "Leadership",
     eyebrow: "Community and coordination",
     intro:
-      "Leadership here is focused on one role that mattered most: helping support and guide the CS Club through advising, coordination, and student-facing technical community work.",
+      "Leadership here is focused on the work of helping technical communities stay active, organized, and student-centered.",
     cards: [
       {
         title: "CS Club Co-Advisor",
         meta: "Student leadership | advising | community support",
         description:
           "Served as Co-Advisor for the CS Club, supporting programming, coordination, and continuity for student-led technical events and activities.",
-        gallery: [
-          "CS Club photo 1",
-          "CS Club photo 2",
-          "CS Club photo 3",
-          "CS Club photo 4",
-          "CS Club photo 5",
-        ],
+        tags: ["Advising", "Community", "Student Leadership"],
+        result:
+          "Helped maintain continuity for student technical programming and collaborative club activity.",
+        visualType: "constellation",
       },
     ],
   },
   blog: {
-    title: "Blog",
+    title: "Writing",
     eyebrow: "Writing and reflection",
     intro:
-      "My blog extends the portfolio into longer-form writing. It is where I reflect on projects, research, student life, and what I am learning through data-focused work.",
+      "My writing extends the portfolio into longer-form reflection. It is where I connect projects, research, student life, and what I am learning through data-focused work.",
     cards: [
       {
         title: "Learning with Data",
         meta: "gabriel-dos-reis.com | blog and reflections",
         description:
-          "A personal blog built around the idea of turning data into knowledge, one step at a time, with posts on projects, research, machine learning, and academic growth.",
-        linkLabel: "Visit blog",
-        linkUrl: "https://gabriel-dos-reis.com/",
+          "A personal blog built around the idea of turning data into knowledge one step at a time, with posts on projects, research, machine learning, and academic growth.",
+        tags: ["Writing", "Reflection", "Communication"],
+        visualType: "signal",
+        links: [{ label: "Visit Blog", href: "https://gabriel-dos-reis.com/" }],
       },
     ],
   },
@@ -232,24 +513,110 @@ export const pageContent = {
         meta: "College of DuPage | Saturday, May 2, 2026",
         description:
           "Helped support ASA DataFest through event organization and judging, contributing to a collaborative data analytics competition environment for students.",
-        linkLabel: "View event page",
-        linkUrl:
-          "https://www.cod.edu/calendar/event-details/2747de96-3839-41b9-a7a3-fcc2a81070b7/instances/2026-05-02",
+        tags: ["DataFest", "Judging", "Event Support"],
+        visualType: "bracket",
+        imageSrc: publicImage("asa_datafest_2026.jpg"),
+        links: [
+          {
+            label: "View Event",
+            href:
+              "https://www.cod.edu/calendar/event-details/2747de96-3839-41b9-a7a3-fcc2a81070b7/instances/2026-05-02",
+          },
+        ],
       },
       {
         title: "Data Analytics Career Panel Moderator",
         meta: "College of DuPage | Wednesday, April 29, 2026",
         description:
           "Moderated a data analytics career panel, helping guide discussion around pathways, professional development, and opportunities in analytics-related fields.",
-        linkLabel: "View event page",
-        linkUrl: "https://www.cod.edu/calendar/event-details/f685cfee-0fb1-4f98-81c1-28add61ad9dd",
+        tags: ["Moderation", "Career Development", "Community"],
+        visualType: "signal",
+        imageSrc: publicImage("career_panel_2026.jpg"),
+        links: [
+          {
+            label: "View Event",
+            href: "https://www.cod.edu/calendar/event-details/f685cfee-0fb1-4f98-81c1-28add61ad9dd",
+          },
+        ],
       },
       {
         title: "DuPage Wildlife Conservation Center Volunteer",
         meta: "Community volunteering",
         description:
           "Volunteer experience that reflects service, consistency, and involvement outside of academic and technical work.",
+        tags: ["Volunteering", "Community"],
+        visualType: "constellation",
       },
     ],
   },
+  about: {
+    title: "About",
+    eyebrow: "Broader portfolio identity",
+    intro:
+      "This portfolio sits at the intersection of data science, research, teaching, and technical community work. The pages below preserve the broader record behind the main navigation.",
+    cards: [
+      {
+        title: "Workshops",
+        meta: "Data literacy | outreach | facilitation",
+        description:
+          "Hands-on teaching sessions designed to make technical topics approachable through guided and practical work.",
+        tags: ["Workshops", "Facilitation", "Data Literacy"],
+        visualType: "signal",
+        links: [{ label: "Open Workshops", to: "/workshops" }],
+      },
+      {
+        title: "Certifications",
+        meta: "Formal upskilling",
+        description:
+          "Selective credentials that reinforce the analytics side of the portfolio without overwhelming the core project and research story.",
+        tags: ["Certificates", "Analytics"],
+        visualType: "document",
+        links: [{ label: "Open Certifications", to: "/certifications" }],
+      },
+      {
+        title: "Leadership",
+        meta: "Advising | coordination | community",
+        description:
+          "Student-facing leadership and advising that support continuity, programming, and technical community building.",
+        tags: ["Leadership", "Advising", "Community"],
+        visualType: "constellation",
+        links: [{ label: "Open Leadership", to: "/leadership" }],
+      },
+      {
+        title: "Other Activities",
+        meta: "Panels | judging | volunteering",
+        description:
+          "Additional work that strengthens the overall professional picture through service, moderation, and event support.",
+        tags: ["Panels", "Judging", "Volunteering"],
+        visualType: "dashboard",
+        links: [{ label: "Open Other Activities", to: "/other" }],
+      },
+    ],
+  },
+  contact: {
+    title: "Contact",
+    eyebrow: "Collaboration and conversation",
+    intro:
+      "Interested in research, data science, teaching, or collaboration? These are the cleanest ways to reach me or review my work.",
+    cards: contactCards,
+  },
 };
+
+export const contactLinks = [
+  {
+    label: "LinkedIn",
+    value: profileLinks.linkedin.value,
+    href: profileLinks.linkedin.href,
+  },
+  {
+    label: "GitHub",
+    value: profileLinks.github.value,
+    href: profileLinks.github.href,
+  },
+  {
+    label: "Resume",
+    value: profileLinks.resume.value,
+    href: profileLinks.resume.href,
+    placeholder: profileLinks.resume.placeholder,
+  },
+];
