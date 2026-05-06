@@ -192,6 +192,33 @@ main {
   padding-bottom: 5rem;
 }
 
+.site-footer {
+  display: flex;
+  justify-content: center;
+  width: min(1240px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 0 0 2.5rem;
+  min-height: 3.15rem;
+  padding: 0.9rem 1.35rem;
+  border: 1px solid rgba(157, 186, 255, 0.12);
+  border-radius: 1.25rem;
+  background: rgba(7, 13, 28, 0.58);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
+}
+
+.site-footer span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 .home-page,
 .page-detail {
   position: relative;

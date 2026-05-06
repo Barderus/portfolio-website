@@ -35,6 +35,10 @@ function SiteLayout() {
       >
         <Outlet />
       </motion.main>
+
+      <footer className="site-footer">
+        <span>Vibe coded with Codex</span>
+      </footer>
     </div>
   );
 }
