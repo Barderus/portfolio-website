@@ -48,8 +48,9 @@ npm run build
 
 ## Content Notes
 - Projects, research, certifications, blog, and other activities include direct external links where relevant.
-- Projects and workshops have preview placeholders for future screenshots or photos.
-- Leadership includes a slideshow-style gallery placeholder for CS Club images or slides.
+- Cards support either a single preview image, a slideshow for multi-image entries, or a text-only layout when no image belongs in the section.
+- Home-page utility sections such as Contact, Writing, About, and Teaching use text-first cards instead of decorative image placeholders.
+- The shared footer includes a site-wide glass panel with the line `Vibe coded with Codex`.
 
 ## Current Direction
 - Multi-page portfolio instead of a single scrolling landing page
@@ -57,6 +58,6 @@ npm run build
 - Short, scan-friendly portfolio summaries with links out to deeper material
 
 ## Next Improvements
-- Replace gallery placeholders with real images
-- Add contact information and resume links
-- Add richer details for any remaining sections as needed
+- Add any remaining real images for sections that should become galleries later
+- Replace the resume placeholder with a live document link when ready
+- Continue tightening copy and section emphasis as the portfolio evolves
