@@ -10,30 +10,9 @@ export const navItems = [
 ];
 
 export const highlightStats = [
-  { value: "Data science", label: "Primary portfolio focus" },
-  { value: "Forecasting + aviation", label: "Research domains" },
-  { value: "Teaching + advising", label: "Technical leadership" },
-];
-
-export const featuredThemes = [
-  {
-    title: "Applied analytics",
-    description:
-      "Projects and research centered on modeling, interpretation, data pipelines, and evidence-driven decision making.",
-    path: "/projects",
-  },
-  {
-    title: "Research practice",
-    description:
-      "A portfolio thread connecting economic forecasting, aviation analysis, and the methods behind both.",
-    path: "/research",
-  },
-  {
-    title: "Teaching impact",
-    description:
-      "TA work, workshops, and student support framed as communication, mentorship, and technical clarity.",
-    path: "/teaching",
-  },
+  { value: "Data science", label: "Primary focus" },
+  { value: "Forecasting + aviation", label: "Research" },
+  { value: "Teaching + advising", label: "Leadership" },
 ];
 
 export const pageContent = {

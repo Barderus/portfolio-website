@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { featuredThemes, highlightStats } from "../content";
+import { highlightStats } from "../content";
 
 const container = {
   hidden: {},
@@ -37,17 +37,15 @@ function HomePage() {
         </motion.p>
         <motion.h1 variants={item}>Data science, applied.</motion.h1>
         <motion.p className="hero-copy" variants={item}>
-          A modern portfolio centered on analytics, forecasting, aviation research,
-          teaching, and technical communication. The landing page introduces the
-          throughline. Each section opens into its own page.
+          Projects, research, teaching, and writing.
         </motion.p>
 
         <motion.div className="hero-actions" variants={item}>
           <Link className="button button-primary" to="/projects">
-            Explore projects
+            Projects
           </Link>
           <Link className="button button-secondary" to="/research">
-            View research
+            Research
           </Link>
         </motion.div>
 
@@ -60,24 +58,6 @@ function HomePage() {
           ))}
         </motion.div>
       </motion.section>
-
-      <section className="section overview-panel">
-        <div className="section-heading">
-          <p>Portfolio focus</p>
-          <h2>Built around analysis, evidence, and communication.</h2>
-        </div>
-        <div className="intro-grid">
-          {featuredThemes.map((theme) => (
-            <article className="intro-card" key={theme.title}>
-              <h3>{theme.title}</h3>
-              <p>{theme.description}</p>
-              <Link className="text-link" to={theme.path}>
-                Open page
-              </Link>
-            </article>
-          ))}
-        </div>
-      </section>
     </>
   );
 }
