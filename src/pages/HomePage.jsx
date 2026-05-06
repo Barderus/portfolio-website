@@ -125,16 +125,6 @@ function HomePage() {
               ))}
             </div>
 
-            <div className="hero-lab-surface" aria-hidden="true">
-              <span className="lab-line lab-line-a" />
-              <span className="lab-line lab-line-b" />
-              <span className="lab-line lab-line-c" />
-              <span className="lab-node lab-node-a" />
-              <span className="lab-node lab-node-b" />
-              <span className="lab-node lab-node-c" />
-              <span className="lab-node lab-node-d" />
-            </div>
-
             <div className="hero-lab-copy">
               <p>{pageContent.research.intro}</p>
             </div>
