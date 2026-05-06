@@ -15,6 +15,22 @@ export const highlightStats = [
   { value: "Teaching + advising", label: "Leadership" },
 ];
 
+export const contactLinks = [
+  {
+    label: "LinkedIn",
+    value: "gabriel-dos-reis",
+    href: "https://www.linkedin.com/in/gabriel-dos-reis-401502224",
+  },
+  {
+    label: "Resume",
+    value: "Coming soon",
+  },
+  {
+    label: "Contact",
+    value: "Available on request",
+  },
+];
+
 export const pageContent = {
   projects: {
     title: "Projects",
