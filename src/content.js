@@ -50,8 +50,8 @@ export const profileLinks = {
 };
 
 export const heroStats = [
-  { value: "ML + analytics", label: "Applied focus" },
-  { value: "Forecasting + aviation", label: "Research direction" },
+  { value: "NLP first", label: "Primary focus" },
+  { value: "Machine learning", label: "Broader direction" },
   { value: "Teaching + advising", label: "Community work" },
 ];
 
@@ -130,6 +130,10 @@ export const featuredProjects = [
     result:
       "Emphasizes transparent scoring and readable model reasoning instead of a black-box output.",
     visualType: "network",
+    imageSources: publicImages(
+      "trustnet_average_word_length_1.png",
+      "trustnet_average_word_length_2.png",
+    ),
     links: [
       { label: "View Project", to: "/projects" },
       {
@@ -147,24 +151,28 @@ export const focusAreas = [
     description:
       "I am interested in models that help people reason under uncertainty, especially when the cost of being wrong affects planning and policy.",
     visualType: "chart",
+    showPreview: false,
   },
   {
     title: "NLP & Misinformation",
     description:
       "I care about language systems that do more than classify text. They should also help users understand credibility, framing, and model reasoning.",
     visualType: "network",
+    showPreview: false,
   },
   {
     title: "Applied Data Systems",
     description:
       "I like end-to-end work that connects data pipelines, modeling, visualization, and decision support into something people can actually use.",
     visualType: "dashboard",
+    showPreview: false,
   },
   {
     title: "Teaching & Data Literacy",
     description:
       "Teaching matters to me because technical work becomes more useful when it is understandable, approachable, and shared well.",
     visualType: "document",
+    showPreview: false,
   },
 ];
 
@@ -175,6 +183,7 @@ export const homeHighlights = [
       "Course support, assignment design, office hours, and project-based guidance for students learning technical material.",
     tags: ["Mentorship", "Curriculum", "Student Support"],
     visualType: "document",
+    showPreview: false,
     links: [{ label: "Explore Teaching", to: "/teaching" }],
   },
   {
@@ -183,6 +192,7 @@ export const homeHighlights = [
       "A personal writing space for reflection on projects, research, machine learning, and academic growth.",
     tags: ["Blog", "Reflection", "Communication"],
     visualType: "signal",
+    showPreview: false,
     links: [{ label: "Visit Writing", to: "/blog" }],
   },
   {
@@ -191,6 +201,7 @@ export const homeHighlights = [
       "Work that supports technical communities through advising, events, moderation, workshops, and judging.",
     tags: ["Leadership", "Community", "Events"],
     visualType: "constellation",
+    showPreview: false,
     links: [{ label: "See About", to: "/about" }],
   },
 ];
@@ -209,6 +220,7 @@ export const contactCards = [
       },
     ],
     helper: profileLinks.email.value,
+    showPreview: false,
   },
   {
     title: "Resume",
@@ -223,6 +235,7 @@ export const contactCards = [
       },
     ],
     helper: profileLinks.resume.value,
+    showPreview: false,
   },
   {
     title: "GitHub",
@@ -230,6 +243,7 @@ export const contactCards = [
     visualType: "dashboard",
     links: [{ label: "Open GitHub", href: profileLinks.github.href }],
     helper: profileLinks.github.value,
+    showPreview: false,
   },
   {
     title: "LinkedIn",
@@ -237,6 +251,7 @@ export const contactCards = [
     visualType: "signal",
     links: [{ label: "Open LinkedIn", href: profileLinks.linkedin.href }],
     helper: profileLinks.linkedin.value,
+    showPreview: false,
   },
 ];
 
@@ -404,6 +419,7 @@ export const pageContent = {
         result:
           "Focused on helping students connect database concepts to usable applications and course projects.",
         visualType: "dashboard",
+        showPreview: false,
       },
       {
         title: "CIS 2571 | Introduction to Java",
@@ -414,6 +430,7 @@ export const pageContent = {
         result:
           "Emphasized implementation-based learning so students could practice concepts through actual program design.",
         visualType: "document",
+        showPreview: false,
       },
       {
         title: "Workshops and Data Literacy",
@@ -422,6 +439,7 @@ export const pageContent = {
           "Workshop sessions in approachable data tools, data literacy, and visual analytics that complement formal course support.",
         tags: ["Workshops", "Data Literacy", "Facilitation"],
         visualType: "signal",
+        showPreview: false,
         links: [{ label: "View Workshops", to: "/workshops" }],
       },
     ],
@@ -486,6 +504,7 @@ export const pageContent = {
           "Completed Google's eight-course data analytics program covering data cleaning, analysis, visualization, spreadsheets, SQL, R, and data-driven communication.",
         tags: ["SQL", "R", "Visualization", "Analytics"],
         visualType: "document",
+        showPreview: false,
         links: [
           {
             label: "View Credential",
@@ -511,6 +530,7 @@ export const pageContent = {
         result:
           "Helped maintain continuity for student technical programming and collaborative club activity.",
         visualType: "constellation",
+        showPreview: false,
       },
     ],
   },
@@ -527,6 +547,7 @@ export const pageContent = {
           "A personal blog built around the idea of turning data into knowledge one step at a time, with posts on projects, research, machine learning, and academic growth.",
         tags: ["Writing", "Reflection", "Communication"],
         visualType: "signal",
+        showPreview: false,
         links: [{ label: "Visit Blog", href: "https://gabriel-dos-reis.com/" }],
       },
     ],
@@ -544,7 +565,11 @@ export const pageContent = {
           "Helped support ASA DataFest through event organization and judging, contributing to a collaborative data analytics competition environment for students.",
         tags: ["DataFest", "Judging", "Event Support"],
         visualType: "bracket",
-        imageSrc: publicImage("asa_datafest_2026.jpg"),
+        imageSources: publicImages(
+          "asa_datafest_2026.jpg",
+          "asa_datafest_2026_2.jpg",
+          "asa_datafest_2026_3.jpg",
+        ),
         links: [
           {
             label: "View Event",
@@ -575,6 +600,7 @@ export const pageContent = {
           "Volunteer experience that reflects service, consistency, and involvement outside of academic and technical work.",
         tags: ["Volunteering", "Community"],
         visualType: "constellation",
+        showPreview: false,
       },
     ],
   },
@@ -591,6 +617,7 @@ export const pageContent = {
           "Hands-on teaching sessions designed to make technical topics approachable through guided and practical work.",
         tags: ["Workshops", "Facilitation", "Data Literacy"],
         visualType: "signal",
+        showPreview: false,
         links: [{ label: "Open Workshops", to: "/workshops" }],
       },
       {
@@ -600,6 +627,7 @@ export const pageContent = {
           "Selective credentials that reinforce the analytics side of the portfolio without overwhelming the core project and research story.",
         tags: ["Certificates", "Analytics"],
         visualType: "document",
+        showPreview: false,
         links: [{ label: "Open Certifications", to: "/certifications" }],
       },
       {
@@ -609,6 +637,7 @@ export const pageContent = {
           "Student-facing leadership and advising that support continuity, programming, and technical community building.",
         tags: ["Leadership", "Advising", "Community"],
         visualType: "constellation",
+        showPreview: false,
         links: [{ label: "Open Leadership", to: "/leadership" }],
       },
       {
@@ -618,6 +647,7 @@ export const pageContent = {
           "Additional work that strengthens the overall professional picture through service, moderation, and event support.",
         tags: ["Panels", "Judging", "Volunteering"],
         visualType: "dashboard",
+        showPreview: false,
         links: [{ label: "Open Other Activities", to: "/other" }],
       },
     ],
@@ -627,7 +657,7 @@ export const pageContent = {
     eyebrow: "Collaboration and conversation",
     intro:
       "Interested in research, data science, teaching, or collaboration? These are the cleanest ways to reach me or review my work.",
-    cards: contactCards,
+    cards: contactCards.map((card) => ({ ...card, showPreview: false })),
   },
 };
 

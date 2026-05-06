@@ -37,12 +37,14 @@ function PortfolioCard({ card, index = 0, featured = false }) {
       viewport={{ once: true, amount: 0.25 }}
       transition={{ duration: 0.55, delay: index * 0.06 }}
     >
-      <VisualPreview
-        title={card.title}
-        visualType={card.visualType}
-        imageSrc={card.imageSrc}
-        imageSources={card.imageSources}
-      />
+      {card.showPreview !== false ? (
+        <VisualPreview
+          title={card.title}
+          visualType={card.visualType}
+          imageSrc={card.imageSrc}
+          imageSources={card.imageSources}
+        />
+      ) : null}
 
       <div className="portfolio-card-body">
         {card.category || card.meta ? (
