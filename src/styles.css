@@ -576,6 +576,7 @@ main {
 
 .visual-preview {
   position: relative;
+  overflow: hidden;
   min-height: 13.2rem;
   border-bottom: 1px solid rgba(157, 186, 255, 0.1);
   background:
@@ -586,14 +587,94 @@ main {
 }
 
 .visual-preview-image {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
+.visual-preview-nav,
+.visual-preview-dot {
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.visual-preview-nav {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.3rem;
+  height: 2.3rem;
+  padding: 0;
+  border-radius: 999px;
+  background: rgba(7, 13, 28, 0.62);
+  color: #eef3ff;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.24);
+  transform: translateY(-50%);
+  transition:
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.visual-preview-nav:hover,
+.visual-preview-nav:focus-visible {
+  background: rgba(88, 141, 255, 0.78);
+  transform: translateY(-50%) scale(1.04);
+}
+
+.visual-preview-nav-prev {
+  left: 0.9rem;
+}
+
+.visual-preview-nav-next {
+  right: 0.9rem;
+}
+
+.visual-preview-nav span {
+  font-size: 1.45rem;
+  line-height: 1;
+}
+
+.visual-preview-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 1rem;
+  z-index: 2;
+  display: inline-flex;
+  gap: 0.45rem;
+  padding: 0.4rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(7, 13, 28, 0.56);
+  backdrop-filter: blur(10px);
+  transform: translateX(-50%);
+}
+
+.visual-preview-dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  padding: 0;
+  border-radius: 999px;
+  background: rgba(220, 232, 255, 0.34);
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease;
+}
+
+.visual-preview-dot:hover,
+.visual-preview-dot:focus-visible,
+.visual-preview-dot.is-active {
+  background: #eef3ff;
+  transform: scale(1.08);
+}
+
 .visual-preview-overlay {
   position: absolute;
   inset: auto 1rem 1rem 1rem;
+  z-index: 2;
   display: flex;
 }
 
@@ -1089,6 +1170,19 @@ main {
 
   .visual-preview {
     min-height: 11.6rem;
+  }
+
+  .visual-preview-nav {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .visual-preview-dots {
+    bottom: 0.8rem;
+  }
+
+  .visual-preview-overlay {
+    inset: auto 0.8rem 3rem 0.8rem;
   }
 
   .hero-summary {

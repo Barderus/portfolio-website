@@ -5,6 +5,7 @@ export const siteIdentity = {
 };
 
 const publicImage = (name) => `${import.meta.env.BASE_URL}images/${name}`;
+const publicImages = (...names) => names.map((name) => publicImage(name));
 
 export const navItems = [
   { label: "Home", path: "/" },
@@ -83,6 +84,12 @@ export const featuredProjects = [
     result:
       "Combines route planning with real-world operational constraints in a research-oriented aviation workflow.",
     visualType: "route",
+    imageSources: publicImages(
+      "aviation_project_1.png",
+      "aviation_project_2.png",
+      "aviation_project_3.png",
+      "aviation_project_4.png",
+    ),
     links: [
       { label: "View Project", to: "/research" },
       {
@@ -101,7 +108,10 @@ export const featuredProjects = [
     result:
       "Turns noisy matchup data into a structured prediction pipeline designed for fast experimentation.",
     visualType: "bracket",
-    imageSrc: publicImage("march_madness_models_features.png"),
+    imageSources: publicImages(
+      "march_madness_models_features.png",
+      "march_madness_kaggle_placement.png",
+    ),
     links: [
       { label: "View Project", to: "/projects" },
       {
@@ -245,7 +255,10 @@ export const pageContent = {
         tags: ["Python", "Kaggle", "Feature Engineering", "Sports"],
         result: "Built for rapid experimentation with matchup features and predictive baselines.",
         visualType: "bracket",
-        imageSrc: publicImage("march_madness_models_features.png"),
+        imageSources: publicImages(
+          "march_madness_models_features.png",
+          "march_madness_kaggle_placement.png",
+        ),
         links: [
           {
             label: "GitHub",
@@ -262,7 +275,10 @@ export const pageContent = {
         result:
           "Designed to make broad job-market patterns easier to compare across roles and locations.",
         visualType: "dashboard",
-        imageSrc: publicImage("job_market_salary_distribution_dashboard.png"),
+        imageSources: publicImages(
+          "job_market_salary_distribution_dashboard.png",
+          "job_market_top10_skills.png",
+        ),
         links: [
           {
             label: "GitHub",
@@ -296,6 +312,10 @@ export const pageContent = {
         result:
           "Keeps interpretability central so the system feels more useful than a one-number classification.",
         visualType: "network",
+        imageSources: publicImages(
+          "trustnet_average_word_length_1.png",
+          "trustnet_average_word_length_2.png",
+        ),
         links: [
           {
             label: "GitHub",
@@ -312,7 +332,7 @@ export const pageContent = {
         result:
           "Transforms a novelty dataset into a serious exercise in exploratory analysis and communication.",
         visualType: "constellation",
-        imageSrc: publicImage("ufo_map.png"),
+        imageSources: publicImages("ufo_map.png", "ufo_wordcloud.png"),
         links: [
           {
             label: "GitHub",
@@ -354,6 +374,12 @@ export const pageContent = {
         result:
           "Models route selection as a tradeoff between operational practicality, safety, and spatial cost.",
         visualType: "route",
+        imageSources: publicImages(
+          "aviation_project_1.png",
+          "aviation_project_2.png",
+          "aviation_project_3.png",
+          "aviation_project_4.png",
+        ),
         links: [
           {
             label: "GitHub",
@@ -422,7 +448,10 @@ export const pageContent = {
           "Ran the same Humble Data workshop at Lewis University, adapting the session for a different audience while keeping the emphasis on approachable data practice.",
         tags: ["Workshop", "Teaching", "Cross-Campus"],
         visualType: "signal",
-        imageSrc: publicImage("humble_data_cod_2025.jpg"),
+        imageSources: publicImages(
+          "humble_data_lewis_2025_1.jpg",
+          "humble_data_lewis_2025_2.jpg",
+        ),
       },
       {
         title: "Orange Data Mining Workshop",
@@ -431,7 +460,7 @@ export const pageContent = {
           "Introduced participants to Orange Data Mining through a guided workshop centered on visual workflows, data exploration, and approachable machine learning concepts.",
         tags: ["Visual Analytics", "Orange", "Workshop"],
         visualType: "dashboard",
-        imageSrc: publicImage("orange_data_mining.jpg"),
+        imageSources: publicImages("orange_data_mining.jpg", "orange_data_mining_2.jpg"),
       },
       {
         title: "Humble Data Workshop | College of DuPage | Spring 2026",
@@ -531,7 +560,7 @@ export const pageContent = {
           "Moderated a data analytics career panel, helping guide discussion around pathways, professional development, and opportunities in analytics-related fields.",
         tags: ["Moderation", "Career Development", "Community"],
         visualType: "signal",
-        imageSrc: publicImage("career_panel_2026.jpg"),
+        imageSources: publicImages("career_panel_2026_1.jpg", "career_panel_2026_2.jpg"),
         links: [
           {
             label: "View Event",

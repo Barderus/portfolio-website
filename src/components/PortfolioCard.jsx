@@ -41,6 +41,7 @@ function PortfolioCard({ card, index = 0, featured = false }) {
         title={card.title}
         visualType={card.visualType}
         imageSrc={card.imageSrc}
+        imageSources={card.imageSources}
       />
 
       <div className="portfolio-card-body">

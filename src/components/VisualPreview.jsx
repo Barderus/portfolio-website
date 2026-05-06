@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 function PatternPreview({ visualType }) {
   switch (visualType) {
     case "chart":
@@ -85,11 +87,79 @@ function PatternPreview({ visualType }) {
   }
 }
 
-function VisualPreview({ title, visualType = "chart", imageSrc }) {
+function VisualPreview({ title, visualType = "chart", imageSrc, imageSources }) {
+  const slides = imageSources?.length ? imageSources : imageSrc ? [imageSrc] : [];
+  const hasSlides = slides.length > 0;
+  const hasMultipleSlides = slides.length > 1;
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  useEffect(() => {
+    setActiveSlide(0);
+  }, [slides.length]);
+
+  useEffect(() => {
+    if (!hasMultipleSlides) {
+      return undefined;
+    }
+
+    const intervalId = window.setInterval(() => {
+      setActiveSlide((current) => (current + 1) % slides.length);
+    }, 4200);
+
+    return () => window.clearInterval(intervalId);
+  }, [hasMultipleSlides, slides.length]);
+
+  const showPreviousSlide = () => {
+    setActiveSlide((current) => (current - 1 + slides.length) % slides.length);
+  };
+
+  const showNextSlide = () => {
+    setActiveSlide((current) => (current + 1) % slides.length);
+  };
+
   return (
     <div className={`visual-preview visual-preview-${visualType}`}>
-      {imageSrc ? (
-        <img className="visual-preview-image" src={imageSrc} alt={`${title} preview`} />
+      {hasSlides ? (
+        <>
+          <img
+            className="visual-preview-image"
+            src={slides[activeSlide]}
+            alt={`${title} preview ${activeSlide + 1}`}
+          />
+
+          {hasMultipleSlides ? (
+            <>
+              <button
+                className="visual-preview-nav visual-preview-nav-prev"
+                type="button"
+                aria-label={`Previous ${title} image`}
+                onClick={showPreviousSlide}
+              >
+                <span aria-hidden="true">‹</span>
+              </button>
+              <button
+                className="visual-preview-nav visual-preview-nav-next"
+                type="button"
+                aria-label={`Next ${title} image`}
+                onClick={showNextSlide}
+              >
+                <span aria-hidden="true">›</span>
+              </button>
+              <div className="visual-preview-dots" aria-label={`${title} image gallery`}>
+                {slides.map((slide, index) => (
+                  <button
+                    key={`${slide}-${index}`}
+                    className={`visual-preview-dot${index === activeSlide ? " is-active" : ""}`}
+                    type="button"
+                    aria-label={`Show ${title} image ${index + 1}`}
+                    aria-pressed={index === activeSlide}
+                    onClick={() => setActiveSlide(index)}
+                  />
+                ))}
+              </div>
+            </>
+          ) : null}
+        </>
       ) : (
         <PatternPreview visualType={visualType} />
       )}
