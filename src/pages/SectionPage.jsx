@@ -1,11 +1,22 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, Navigate, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
+import Breadcrumbs from "../components/Breadcrumbs";
 import PortfolioCard from "../components/PortfolioCard";
 import { pageContent } from "../content";
 
+const routeAliases = {
+  projects: "work",
+  research: "work",
+};
+
 function SectionPage() {
   const { slug } = useParams();
-  const content = pageContent[slug];
+  const resolvedSlug = routeAliases[slug] ?? slug;
+  const content = pageContent[resolvedSlug];
+
+  if (slug !== resolvedSlug) {
+    return <Navigate replace to={`/${resolvedSlug}`} />;
+  }
 
   if (!content) {
     return (
@@ -29,6 +40,8 @@ function SectionPage() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
     >
+      <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: content.title }]} />
+
       <div className="section-heading section-heading-wide">
         <p>{content.eyebrow}</p>
         <h2>{content.title}</h2>
