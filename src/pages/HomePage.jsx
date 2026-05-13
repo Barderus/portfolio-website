@@ -7,10 +7,10 @@ import {
   focusAreas,
   heroStats,
   homeHighlights,
-  pageContent,
   profileLinks,
   siteIdentity,
 } from "../content";
+import { openEmailDraft } from "../contact";
 
 const container = {
   hidden: {},
@@ -34,12 +34,11 @@ const item = {
 };
 
 const heroLinks = [
-  { label: "View Projects", to: "/projects", variant: "primary" },
+  { label: "View Work", to: "/work", variant: "primary" },
   {
-    label: "View Resume",
-    href: profileLinks.resume.href,
+    label: "Request Resume",
+    to: profileLinks.resume.to,
     variant: "secondary",
-    placeholder: profileLinks.resume.placeholder,
   },
   { label: "GitHub", href: profileLinks.github.href, variant: "secondary" },
   { label: "LinkedIn", href: profileLinks.linkedin.href, variant: "secondary" },
@@ -48,19 +47,31 @@ const heroLinks = [
 function HeroButton({ link }) {
   const className = link.variant === "secondary" ? "button button-secondary" : "button button-primary";
 
-  if (link.placeholder || !link.href && !link.to) {
-    return (
-      <span className={`${className} button-disabled`} aria-disabled="true">
-        {link.label}
-      </span>
-    );
-  }
-
   if (link.to) {
     return (
       <Link className={className} to={link.to}>
         {link.label}
       </Link>
+    );
+  }
+
+  if (link.action === "email") {
+    return (
+      <button
+        className={className}
+        type="button"
+        onClick={() => openEmailDraft({ subject: "Portfolio inquiry" })}
+      >
+        {link.label}
+      </button>
+    );
+  }
+
+  if (!link.href) {
+    return (
+      <span className={`${className} button-disabled`} aria-disabled="true">
+        {link.label}
+      </span>
     );
   }
 
@@ -86,8 +97,7 @@ function HomePage() {
               {siteIdentity.name} | {siteIdentity.role}
             </motion.p>
             <motion.h1 variants={item}>
-              I build data-driven projects at the intersection of machine learning,
-              research, teaching, and real-world decision making.
+              I build data projects for machine learning, research, and real-world decisions.
             </motion.h1>
             <motion.p className="hero-copy" variants={item}>
               My work spans recession prediction, aviation route modeling, sports
@@ -126,7 +136,11 @@ function HomePage() {
             </div>
 
             <div className="hero-lab-copy">
-              <p>{pageContent.research.intro}</p>
+              <p>
+                My work combines research questions with applied modeling, from
+                recession forecasting and aviation routes to NLP and dashboard-driven
+                analysis.
+              </p>
             </div>
           </motion.aside>
         </div>
@@ -135,10 +149,10 @@ function HomePage() {
       <section className="section">
         <div className="section-heading">
           <p>Selected work</p>
-          <h2>Featured Projects</h2>
+          <h2>Featured Work</h2>
         </div>
         <p className="page-intro">
-          A front-door selection of projects that best represent the portfolio's
+          A front-door selection of work that best represents the portfolio&apos;s
           mix of research, applied modeling, and technical communication.
         </p>
 
