@@ -37,7 +37,7 @@ function SiteLayout() {
       </motion.main>
 
       <footer className="site-footer">
-        <span>Vibe coded with Codex</span>
+        <span>Built with React and Vite</span>
       </footer>
     </div>
   );
