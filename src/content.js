@@ -1,3 +1,5 @@
+import { obfuscatedEmail, resumeRequestPath } from "./contact";
+
 export const siteIdentity = {
   name: "Gabriel dos Reis",
   role: "Data science, machine learning, and research portfolio",
@@ -9,8 +11,7 @@ const publicImages = (...names) => names.map((name) => publicImage(name));
 
 export const navItems = [
   { label: "Home", path: "/" },
-  { label: "Projects", path: "/projects" },
-  { label: "Research", path: "/research" },
+  { label: "Work", path: "/work" },
   { label: "Teaching", path: "/teaching" },
   { label: "Writing", path: "/blog" },
   { label: "About", path: "/about" },
@@ -27,15 +28,13 @@ export const aboutLinks = [
 export const profileLinks = {
   email: {
     label: "Email",
-    href: "mailto:reis.sev@gmail.com",
-    value: "reis.sev@gmail.com",
-    placeholder: false,
+    action: "email",
+    value: obfuscatedEmail,
   },
   resume: {
     label: "Resume",
-    href: "",
-    value: "Available on request",
-    placeholder: true,
+    to: resumeRequestPath,
+    value: "Request access through a short form",
   },
   github: {
     label: "GitHub",
@@ -67,7 +66,7 @@ export const featuredProjects = [
     visualType: "chart",
     imageSrc: publicImage("recession_best_feature_per_model.png"),
     links: [
-      { label: "View Project", to: "/research" },
+      { label: "View Work", to: "/work" },
       {
         label: "GitHub",
         href: "https://github.com/Barderus/Recession_Prediction",
@@ -91,7 +90,7 @@ export const featuredProjects = [
       "aviation_project_4.png",
     ),
     links: [
-      { label: "View Project", to: "/research" },
+      { label: "View Work", to: "/work" },
       {
         label: "GitHub",
         href: "https://github.com/Barderus/eVTOL_Air_Route",
@@ -113,7 +112,7 @@ export const featuredProjects = [
       "march_madness_kaggle_placement.png",
     ),
     links: [
-      { label: "View Project", to: "/projects" },
+      { label: "View Work", to: "/work" },
       {
         label: "GitHub",
         href: "https://github.com/Barderus/MarchMadness-Kaggle",
@@ -135,7 +134,7 @@ export const featuredProjects = [
       "trustnet_average_word_length_2.png",
     ),
     links: [
-      { label: "View Project", to: "/projects" },
+      { label: "View Work", to: "/work" },
       {
         label: "GitHub",
         href: "https://github.com/Barderus/TrustNet",
@@ -214,9 +213,8 @@ export const contactCards = [
     links: [
       {
         label: "Email",
-        href: profileLinks.email.href,
+        action: profileLinks.email.action,
         variant: "primary",
-        placeholder: profileLinks.email.placeholder,
       },
     ],
     helper: profileLinks.email.value,
@@ -228,10 +226,9 @@ export const contactCards = [
     visualType: "document",
     links: [
       {
-        label: "View Resume",
-        href: profileLinks.resume.href,
+        label: "Request Resume",
+        to: profileLinks.resume.to,
         variant: "primary",
-        placeholder: profileLinks.resume.placeholder,
       },
     ],
     helper: profileLinks.resume.value,
@@ -256,18 +253,60 @@ export const contactCards = [
 ];
 
 export const pageContent = {
-  projects: {
-    title: "Projects",
-    eyebrow: "Data products",
+  work: {
+    title: "Work",
+    eyebrow: "Projects and research",
     intro:
-      "A selected set of data science and analytics projects. The cards stay concise so the portfolio feels scannable while still showing what each project is trying to solve.",
+      "Projects and research live together here so the portfolio is faster to scan. Each card is tagged by type and keeps the focus on the problem, method, and outcome.",
     cards: [
       {
+        title: "Recession Prediction",
+        category: "Research",
+        meta: "Macroeconomics | forecasting | machine learning",
+        description:
+          "A recession forecasting project built around economic policy uncertainty, macroeconomic indicators, and interpretable machine learning models.",
+        tags: ["Research", "Forecasting", "Macroeconomics", "Interpretable ML", "Python"],
+        result:
+          "Treats recession prediction as an interpretable risk signal that supports clearer reasoning about uncertainty.",
+        visualType: "chart",
+        imageSrc: publicImage("recession_best_feature_per_model.png"),
+        links: [
+          {
+            label: "GitHub",
+            href: "https://github.com/Barderus/Recession_Prediction",
+          },
+        ],
+      },
+      {
+        title: "eVTOL Air Route",
+        category: "Research",
+        meta: "Aviation research | routing | geospatial analysis",
+        description:
+          "Low-altitude route analysis around Chicago using population density, airspace constraints, flight-density costs, and A* pathfinding.",
+        tags: ["Research", "Aviation", "Geospatial", "Routing", "Optimization"],
+        result:
+          "Models route selection as a tradeoff between operational practicality, safety, and spatial cost.",
+        visualType: "route",
+        imageSources: publicImages(
+          "aviation_project_1.png",
+          "aviation_project_2.png",
+          "aviation_project_3.png",
+          "aviation_project_4.png",
+        ),
+        links: [
+          {
+            label: "GitHub",
+            href: "https://github.com/Barderus/eVTOL_Air_Route",
+          },
+        ],
+      },
+      {
         title: "March Madness Kaggle",
+        category: "Project",
         meta: "Predictive modeling | sports analytics",
         description:
           "NCAA tournament prediction built from regular-season data, engineered matchup features, and model comparison notebooks.",
-        tags: ["Python", "Kaggle", "Feature Engineering", "Sports"],
+        tags: ["Project", "Python", "Kaggle", "Feature Engineering", "Sports"],
         result: "Built for rapid experimentation with matchup features and predictive baselines.",
         visualType: "bracket",
         imageSources: publicImages(
@@ -283,10 +322,11 @@ export const pageContent = {
       },
       {
         title: "Job Market Dashboard",
+        category: "Project",
         meta: "Labor analytics | dashboard pipeline",
         description:
           "Multi-source analysis of U.S. tech hiring trends across roles, skills, salaries, and geography, with an interactive dashboard direction.",
-        tags: ["Dashboards", "Labor Data", "Analytics", "Visualization"],
+        tags: ["Project", "Dashboards", "Labor Data", "Analytics", "Visualization"],
         result:
           "Designed to make broad job-market patterns easier to compare across roles and locations.",
         visualType: "dashboard",
@@ -303,10 +343,11 @@ export const pageContent = {
       },
       {
         title: "Pokemon Analysis",
+        category: "Project",
         meta: "Classification | feature engineering",
         description:
           "A playful but serious modeling project on what separates legendary Pokemon from the rest using stats, metadata, and leakage-safe pipelines.",
-        tags: ["Classification", "EDA", "Pipelines", "Python"],
+        tags: ["Project", "Classification", "EDA", "Pipelines", "Python"],
         result:
           "Uses a familiar dataset to demonstrate disciplined modeling and leakage-aware feature work.",
         visualType: "chart",
@@ -320,10 +361,11 @@ export const pageContent = {
       },
       {
         title: "TrustNet",
+        category: "Project",
         meta: "NLP | misinformation detection",
         description:
           "An explainable fake-news analysis tool that scores trustworthiness and surfaces why the model flagged the text the way it did.",
-        tags: ["NLP", "Explainability", "Trust Scoring", "ML"],
+        tags: ["Project", "NLP", "Explainability", "Trust Scoring", "ML"],
         result:
           "Keeps interpretability central so the system feels more useful than a one-number classification.",
         visualType: "network",
@@ -340,10 +382,11 @@ export const pageContent = {
       },
       {
         title: "UFO Data Analysis",
+        category: "Project",
         meta: "EDA | geospatial analysis | NLP",
         description:
           "Large-scale UFO sighting analysis using temporal trends, mapping, and text analysis to turn an unusual dataset into interpretable patterns.",
-        tags: ["Geospatial", "Text Analysis", "EDA", "Visualization"],
+        tags: ["Project", "Geospatial", "Text Analysis", "EDA", "Visualization"],
         result:
           "Transforms a novelty dataset into a serious exercise in exploratory analysis and communication.",
         visualType: "constellation",
@@ -352,53 +395,6 @@ export const pageContent = {
           {
             label: "GitHub",
             href: "https://github.com/Barderus/UFO-Data-Analysis",
-          },
-        ],
-      },
-    ],
-  },
-  research: {
-    title: "Research",
-    eyebrow: "Data-driven inquiry",
-    intro:
-      "Two research tracks anchor the portfolio: economic forecasting and aviation systems. Both focus on modeling under real constraints rather than purely theoretical exercises.",
-    cards: [
-      {
-        title: "Recession Prediction",
-        meta: "Macroeconomics | forecasting | machine learning",
-        description:
-          "A recession forecasting project built around economic policy uncertainty, macroeconomic indicators, and interpretable machine learning models.",
-        tags: ["Forecasting", "Macroeconomics", "Interpretable ML", "Python"],
-        result:
-          "Treats recession prediction as an interpretable risk signal that supports clearer reasoning about uncertainty.",
-        visualType: "chart",
-        imageSrc: publicImage("recession_best_feature_per_model.png"),
-        links: [
-          {
-            label: "GitHub",
-            href: "https://github.com/Barderus/Recession_Prediction",
-          },
-        ],
-      },
-      {
-        title: "eVTOL Air Route",
-        meta: "Aviation research | routing | geospatial analysis",
-        description:
-          "Low-altitude route analysis around Chicago using population density, airspace constraints, flight-density costs, and A* pathfinding.",
-        tags: ["Aviation", "Geospatial", "Routing", "Optimization"],
-        result:
-          "Models route selection as a tradeoff between operational practicality, safety, and spatial cost.",
-        visualType: "route",
-        imageSources: publicImages(
-          "aviation_project_1.png",
-          "aviation_project_2.png",
-          "aviation_project_3.png",
-          "aviation_project_4.png",
-        ),
-        links: [
-          {
-            label: "GitHub",
-            href: "https://github.com/Barderus/eVTOL_Air_Route",
           },
         ],
       },
@@ -675,7 +671,6 @@ export const contactLinks = [
   {
     label: "Resume",
     value: profileLinks.resume.value,
-    href: profileLinks.resume.href,
-    placeholder: profileLinks.resume.placeholder,
+    to: profileLinks.resume.to,
   },
 ];
