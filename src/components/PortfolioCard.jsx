@@ -1,23 +1,36 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { openEmailDraft } from "../contact";
 import VisualPreview from "./VisualPreview";
 
 function CardLink({ item }) {
   const variant = item.variant === "secondary" ? "button button-secondary" : "button button-primary";
-
-  if (item.placeholder || !item.href && !item.to) {
-    return (
-      <span className={`${variant} button-disabled`} aria-disabled="true">
-        {item.label}
-      </span>
-    );
-  }
 
   if (item.to) {
     return (
       <Link className={variant} to={item.to}>
         {item.label}
       </Link>
+    );
+  }
+
+  if (item.action === "email") {
+    return (
+      <button
+        className={variant}
+        type="button"
+        onClick={() => openEmailDraft({ subject: "Portfolio inquiry" })}
+      >
+        {item.label}
+      </button>
+    );
+  }
+
+  if (!item.href) {
+    return (
+      <span className={`${variant} button-disabled`} aria-disabled="true">
+        {item.label}
+      </span>
     );
   }
 
@@ -49,7 +62,8 @@ function PortfolioCard({ card, index = 0, featured = false }) {
       <div className="portfolio-card-body">
         {card.category || card.meta ? (
           <div className="portfolio-card-meta">
-            <span>{card.category ?? card.meta}</span>
+            {card.category ? <strong>{card.category}</strong> : null}
+            {card.meta ? <span>{card.meta}</span> : null}
           </div>
         ) : null}
 
