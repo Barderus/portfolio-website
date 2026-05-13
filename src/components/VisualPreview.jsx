@@ -92,22 +92,43 @@ function VisualPreview({ title, visualType = "chart", imageSrc, imageSources }) 
   const hasSlides = slides.length > 0;
   const hasMultipleSlides = slides.length > 1;
   const [activeSlide, setActiveSlide] = useState(0);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
   useEffect(() => {
     setActiveSlide(0);
   }, [slides.length]);
 
   useEffect(() => {
-    if (!hasMultipleSlides) {
+    if (!isLightboxOpen) {
       return undefined;
     }
 
-    const intervalId = window.setInterval(() => {
-      setActiveSlide((current) => (current + 1) % slides.length);
-    }, 4200);
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        setIsLightboxOpen(false);
+      }
 
-    return () => window.clearInterval(intervalId);
-  }, [hasMultipleSlides, slides.length]);
+      if (!hasMultipleSlides) {
+        return;
+      }
+
+      if (event.key === "ArrowLeft") {
+        setActiveSlide((current) => (current - 1 + slides.length) % slides.length);
+      }
+
+      if (event.key === "ArrowRight") {
+        setActiveSlide((current) => (current + 1) % slides.length);
+      }
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [hasMultipleSlides, isLightboxOpen, slides.length]);
 
   const showPreviousSlide = () => {
     setActiveSlide((current) => (current - 1 + slides.length) % slides.length);
@@ -118,55 +139,124 @@ function VisualPreview({ title, visualType = "chart", imageSrc, imageSources }) 
   };
 
   return (
-    <div className={`visual-preview visual-preview-${visualType}`}>
-      {hasSlides ? (
-        <>
-          <img
-            className="visual-preview-image"
-            src={slides[activeSlide]}
-            alt={`${title} preview ${activeSlide + 1}`}
-          />
+    <>
+      <div className={`visual-preview visual-preview-${visualType}`}>
+        {hasSlides ? (
+          <>
+            <img
+              className="visual-preview-image"
+              src={slides[activeSlide]}
+              alt={`${title} preview ${activeSlide + 1}`}
+            />
+            <button
+              className="visual-preview-expand"
+              type="button"
+              aria-label={`Expand ${title} image`}
+              onClick={() => setIsLightboxOpen(true)}
+            />
 
-          {hasMultipleSlides ? (
-            <>
-              <button
-                className="visual-preview-nav visual-preview-nav-prev"
-                type="button"
-                aria-label={`Previous ${title} image`}
-                onClick={showPreviousSlide}
-              >
-                <span aria-hidden="true">‹</span>
-              </button>
-              <button
-                className="visual-preview-nav visual-preview-nav-next"
-                type="button"
-                aria-label={`Next ${title} image`}
-                onClick={showNextSlide}
-              >
-                <span aria-hidden="true">›</span>
-              </button>
-              <div className="visual-preview-dots" aria-label={`${title} image gallery`}>
-                {slides.map((slide, index) => (
-                  <button
-                    key={`${slide}-${index}`}
-                    className={`visual-preview-dot${index === activeSlide ? " is-active" : ""}`}
-                    type="button"
-                    aria-label={`Show ${title} image ${index + 1}`}
-                    aria-pressed={index === activeSlide}
-                    onClick={() => setActiveSlide(index)}
-                  />
-                ))}
-              </div>
-            </>
-          ) : null}
-        </>
-      ) : (
-        <PatternPreview visualType={visualType} />
-      )}
-      <div className="visual-preview-overlay">
-        <span>{title}</span>
+            {hasMultipleSlides ? (
+              <>
+                <button
+                  className="visual-preview-nav visual-preview-nav-prev"
+                  type="button"
+                  aria-label={`Previous ${title} image`}
+                  onClick={showPreviousSlide}
+                >
+                  <span aria-hidden="true">&lt;</span>
+                </button>
+                <button
+                  className="visual-preview-nav visual-preview-nav-next"
+                  type="button"
+                  aria-label={`Next ${title} image`}
+                  onClick={showNextSlide}
+                >
+                  <span aria-hidden="true">&gt;</span>
+                </button>
+                <div className="visual-preview-dots" aria-label={`${title} image gallery`}>
+                  {slides.map((slide, index) => (
+                    <button
+                      key={`${slide}-${index}`}
+                      className={`visual-preview-dot${index === activeSlide ? " is-active" : ""}`}
+                      type="button"
+                      aria-label={`Show ${title} image ${index + 1}`}
+                      aria-pressed={index === activeSlide}
+                      onClick={() => setActiveSlide(index)}
+                    />
+                  ))}
+                </div>
+              </>
+            ) : null}
+          </>
+        ) : (
+          <PatternPreview visualType={visualType} />
+        )}
+
+        <div className="visual-preview-overlay">
+          <span>{hasSlides ? `${title} | Click to expand` : title}</span>
+        </div>
       </div>
-    </div>
+
+      {isLightboxOpen ? (
+        <div
+          className="visual-lightbox"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${title} image viewer`}
+          onClick={() => setIsLightboxOpen(false)}
+        >
+          <button
+            className="visual-lightbox-close"
+            type="button"
+            aria-label={`Close ${title} image viewer`}
+            onClick={() => setIsLightboxOpen(false)}
+          >
+            x
+          </button>
+
+          <div className="visual-lightbox-frame" onClick={(event) => event.stopPropagation()}>
+            <img
+              className="visual-lightbox-image"
+              src={slides[activeSlide]}
+              alt={`${title} full view ${activeSlide + 1}`}
+            />
+
+            {hasMultipleSlides ? (
+              <>
+                <button
+                  className="visual-preview-nav visual-lightbox-nav visual-preview-nav-prev"
+                  type="button"
+                  aria-label={`Previous ${title} image`}
+                  onClick={showPreviousSlide}
+                >
+                  <span aria-hidden="true">&lt;</span>
+                </button>
+                <button
+                  className="visual-preview-nav visual-lightbox-nav visual-preview-nav-next"
+                  type="button"
+                  aria-label={`Next ${title} image`}
+                  onClick={showNextSlide}
+                >
+                  <span aria-hidden="true">&gt;</span>
+                </button>
+                <div className="visual-preview-dots visual-lightbox-dots">
+                  {slides.map((slide, index) => (
+                    <button
+                      key={`${slide}-lightbox-${index}`}
+                      className={`visual-preview-dot${index === activeSlide ? " is-active" : ""}`}
+                      type="button"
+                      aria-label={`Show ${title} image ${index + 1}`}
+                      aria-pressed={index === activeSlide}
+                      onClick={() => setActiveSlide(index)}
+                    />
+                  ))}
+                </div>
+              </>
+            ) : null}
+          </div>
+        </div>
+      ) : null}
+    </>
   );
 }
 
