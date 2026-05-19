@@ -5,14 +5,10 @@ import { navItems, siteIdentity } from "../content";
 function SiteLayout() {
   return (
     <div className="page-shell">
-      <div className="ambient ambient-left" />
-      <div className="ambient ambient-right" />
-      <div className="ambient ambient-center" />
-
       <header className="topbar">
         <NavLink className="brand" to="/">
           <span>{siteIdentity.name}</span>
-          <strong>{siteIdentity.role}</strong>
+          <strong>{siteIdentity.location}</strong>
         </NavLink>
         <nav className="topnav">
           {navItems.map((item) => (
@@ -37,7 +33,7 @@ function SiteLayout() {
       </motion.main>
 
       <footer className="site-footer">
-        <span>Built with React and Vite</span>
+        <span>{siteIdentity.role}</span>
       </footer>
     </div>
   );

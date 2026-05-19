@@ -1,45 +1,6 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { openEmailDraft } from "../contact";
+import ActionLink from "./ActionLink";
 import VisualPreview from "./VisualPreview";
-
-function CardLink({ item }) {
-  const variant = item.variant === "secondary" ? "button button-secondary" : "button button-primary";
-
-  if (item.to) {
-    return (
-      <Link className={variant} to={item.to}>
-        {item.label}
-      </Link>
-    );
-  }
-
-  if (item.action === "email") {
-    return (
-      <button
-        className={variant}
-        type="button"
-        onClick={() => openEmailDraft({ subject: "Portfolio inquiry" })}
-      >
-        {item.label}
-      </button>
-    );
-  }
-
-  if (!item.href) {
-    return (
-      <span className={`${variant} button-disabled`} aria-disabled="true">
-        {item.label}
-      </span>
-    );
-  }
-
-  return (
-    <a className={variant} href={item.href} target="_blank" rel="noreferrer">
-      {item.label}
-    </a>
-  );
-}
 
 function PortfolioCard({ card, index = 0, featured = false }) {
   return (
@@ -87,7 +48,11 @@ function PortfolioCard({ card, index = 0, featured = false }) {
         {card.links?.length ? (
           <div className="button-row">
             {card.links.map((item) => (
-              <CardLink item={item} key={`${card.title}-${item.label}`} />
+              <ActionLink
+                item={item}
+                className={item.variant === "secondary" ? "button button-secondary" : "button button-primary"}
+                key={`${card.title}-${item.label}`}
+              />
             ))}
           </div>
         ) : null}

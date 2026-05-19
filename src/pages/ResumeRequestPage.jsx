@@ -1,7 +1,7 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Breadcrumbs from "../components/Breadcrumbs";
-import { getEmailAddress, getEmailHref, obfuscatedEmail } from "../contact";
+import { getEmailAddress } from "../contact";
 
 const initialForm = {
   name: "",
@@ -12,33 +12,50 @@ const initialForm = {
 
 function ResumeRequestPage() {
   const [form, setForm] = useState(initialForm);
-  const [copied, setCopied] = useState(false);
-
-  const mailtoHref = useMemo(() => {
-    const lines = [
-      `Name: ${form.name || "[Your name]"}`,
-      `Email: ${form.email || "[Your email]"}`,
-      `Company: ${form.company || "[Company or organization]"}`,
-      "",
-      "Reason for access:",
-      form.reason || "[What role or opportunity are you considering?]",
-    ];
-
-    return getEmailHref("Resume access request", lines.join("\n"));
-  }, [form]);
+  const [status, setStatus] = useState("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setForm((current) => ({ ...current, [name]: value }));
   };
 
-  const handleCopy = async () => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setStatus("submitting");
+    setErrorMessage("");
+
+    const payload = new FormData();
+    payload.append("name", form.name);
+    payload.append("email", form.email);
+    payload.append("company", form.company);
+    payload.append("reason", form.reason);
+    payload.append("_subject", "Resume access request");
+    payload.append("_template", "table");
+    payload.append("_replyto", form.email);
+
+    if (typeof window !== "undefined") {
+      payload.append("_url", window.location.href);
+    }
+
     try {
-      await navigator.clipboard.writeText(getEmailAddress());
-      setCopied(true);
-      window.setTimeout(() => setCopied(false), 1800);
+      const response = await fetch(`https://formsubmit.co/ajax/${getEmailAddress()}`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+        },
+        body: payload,
+      });
+
+      if (!response.ok) {
+        throw new Error("Request failed");
+      }
+
+      setStatus("success");
+      setForm(initialForm);
     } catch {
-      setCopied(false);
+      setStatus("error");
+      setErrorMessage("Unable to send the request right now. Please try again in a moment.");
     }
   };
 
@@ -57,20 +74,19 @@ function ResumeRequestPage() {
       </div>
 
       <p className="page-intro">
-        Fill out a quick request and your email app will open a prefilled message.
-        If you prefer, you can also copy the address and send the request manually.
+        Fill out the form below and I&apos;ll receive your request directly by email.
       </p>
 
       <div className="resume-request-panel">
-        <form className="resume-request-form">
+        <form className="resume-request-form" onSubmit={handleSubmit}>
           <label className="form-field">
             <span>Name</span>
-            <input name="name" type="text" value={form.name} onChange={handleChange} />
+            <input name="name" type="text" value={form.name} onChange={handleChange} required />
           </label>
 
           <label className="form-field">
             <span>Email</span>
-            <input name="email" type="email" value={form.email} onChange={handleChange} />
+            <input name="email" type="email" value={form.email} onChange={handleChange} required />
           </label>
 
           <label className="form-field">
@@ -80,26 +96,25 @@ function ResumeRequestPage() {
 
           <label className="form-field">
             <span>Reason for access</span>
-            <textarea name="reason" rows="6" value={form.reason} onChange={handleChange} />
+            <textarea name="reason" rows="6" value={form.reason} onChange={handleChange} required />
           </label>
 
+          {status === "success" ? (
+            <p className="form-status form-status-success">
+              Your request was sent successfully.
+            </p>
+          ) : null}
+
+          {status === "error" ? (
+            <p className="form-status form-status-error">{errorMessage}</p>
+          ) : null}
+
           <div className="button-row">
-            <a className="button button-primary" href={mailtoHref}>
-              Send Request
-            </a>
-            <button className="button button-secondary" type="button" onClick={handleCopy}>
-              {copied ? "Copied" : "Copy Email"}
+            <button className="button button-primary" type="submit" disabled={status === "submitting"}>
+              {status === "submitting" ? "Sending..." : "Send Request"}
             </button>
           </div>
         </form>
-
-        <aside className="resume-request-aside">
-          <p className="resume-request-label">Contact email</p>
-          <strong>{obfuscatedEmail}</strong>
-          <span>
-            Include your role, organization, and what kind of work you want to review.
-          </span>
-        </aside>
       </div>
     </motion.section>
   );

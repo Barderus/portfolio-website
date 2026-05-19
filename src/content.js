@@ -2,7 +2,7 @@ import { obfuscatedEmail, resumeRequestPath } from "./contact";
 
 export const siteIdentity = {
   name: "Gabriel dos Reis",
-  role: "Data science, machine learning, and research portfolio",
+  role: "Computer science, data science, and research",
   location: "Chicago area",
 };
 
@@ -10,11 +10,11 @@ const publicImage = (name) => `${import.meta.env.BASE_URL}images/${name}`;
 const publicImages = (...names) => names.map((name) => publicImage(name));
 
 export const navItems = [
-  { label: "Home", path: "/" },
+  { label: "About", path: "/about" },
   { label: "Work", path: "/work" },
+  { label: "Research", path: "/research" },
   { label: "Teaching", path: "/teaching" },
   { label: "Writing", path: "/blog" },
-  { label: "About", path: "/about" },
   { label: "Contact", path: "/contact" },
 ];
 
@@ -48,10 +48,223 @@ export const profileLinks = {
   },
 };
 
-export const heroStats = [
-  { value: "NLP first", label: "Primary focus" },
-  { value: "Machine learning", label: "Broader direction" },
-  { value: "Teaching + advising", label: "Community work" },
+export const homeHero = {
+  eyebrow: "Computer science, data science, teaching, and research",
+  title: "Aspiring data scientist focused on social good and data-driven decisions.",
+  links: [
+    { label: "Selected Work", to: "/work", variant: "primary" },
+    { label: "Research", to: "/research", variant: "secondary" },
+    { label: "GitHub", href: profileLinks.github.href, variant: "secondary" },
+    { label: "LinkedIn", href: profileLinks.linkedin.href, variant: "secondary" },
+  ],
+};
+
+export const identitySections = [
+  {
+    title: "I build data-driven projects",
+    body:
+      "My portfolio spans predictive modeling, geospatial analysis, dashboards, and explainable NLP. I like projects that connect technical depth with practical decisions.",
+  },
+  {
+    title: "I teach and support students",
+    body:
+      "Teaching assistant work, assignment design, and workshop facilitation are central to how I think. I care about making technical material approachable without diluting it.",
+  },
+  {
+    title: "I organize learning communities",
+    body:
+      "I have supported student communities, moderated career conversations, and helped run technical events that make computing and analytics feel more accessible.",
+  },
+  {
+    title: "I'm preparing for graduate research",
+    body:
+      "I am especially drawn to machine learning and NLP questions around misinformation, explainability, and data-driven decision-making that have real social stakes.",
+  },
+];
+
+export const selectedProjects = [
+  {
+    period: "Predictive modeling",
+    title: "March Madness Kaggle Predictor",
+    summary:
+      "Tournament prediction built from regular-season data, engineered matchup features, and model comparison workflows.",
+    context:
+      "This project reflects how I approach messy competitive prediction problems: define a usable pipeline, test features quickly, and keep the model grounded in interpretable basketball signals.",
+    methods: ["Python", "Feature engineering", "Predictive modeling", "Sports analytics"],
+    impact:
+      "Demonstrates a fast experimentation workflow for turning noisy historical game data into a structured prediction system.",
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/Barderus/MarchMadness-Kaggle",
+      },
+    ],
+  },
+  {
+    period: "Economic forecasting",
+    title: "Recession Prediction with Macroeconomic Indicators",
+    summary:
+      "A recession forecasting project centered on economic policy uncertainty, macroeconomic indicators, and interpretable machine learning models.",
+    context:
+      "I was interested in recession prediction as more than an academic exercise. The stronger framing is decision support under uncertainty: how can a model surface risk clearly enough to inform planning?",
+    methods: ["Python", "Time series", "Macroeconomics", "Interpretable ML"],
+    impact:
+      "Shows how modeling can be used to reason about uncertainty in a way that remains legible to non-specialists.",
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/Barderus/Recession_Prediction",
+      },
+    ],
+  },
+  {
+    period: "NLP and misinformation",
+    title: "TrustNet / Fake News Detection",
+    summary:
+      "An explainable NLP tool that evaluates trustworthiness and surfaces why a piece of text was flagged by the model.",
+    context:
+      "This project sits close to my longer-term interests. I care about NLP systems that do more than produce a label and instead help users understand credibility, reasoning, and uncertainty.",
+    methods: ["NLP", "Classification", "Explainability", "Misinformation analysis"],
+    impact:
+      "Represents my research direction around misinformation detection, model transparency, and human-readable outputs.",
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/Barderus/TrustNet",
+      },
+    ],
+  },
+  {
+    period: "Dashboard analytics",
+    title: "Job Market Dashboard",
+    summary:
+      "A labor analytics project that studies roles, skills, salaries, and geography through a dashboard-oriented workflow.",
+    context:
+      "This work reflects a different but important side of my practice: building analysis that helps broad audiences understand complicated patterns through clear visuals and summaries.",
+    methods: ["Dashboards", "Visualization", "Labor data", "Analytics"],
+    impact:
+      "Demonstrates how technical analysis can become more actionable when paired with readable presentation.",
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/Barderus/job-market-dashboard",
+      },
+    ],
+  },
+  {
+    period: "Aviation systems",
+    title: "eVTOL / Air Route Risk Modeling",
+    summary:
+      "Low-altitude route analysis around Chicago using population density, airspace constraints, flight-density costs, and A* pathfinding.",
+    context:
+      "This project combines research framing with applied optimization. I was interested in how routing decisions change once real operational constraints enter the system.",
+    methods: ["Geospatial analysis", "Routing", "Optimization", "Aviation systems"],
+    impact:
+      "Demonstrates systems thinking across data, cost surfaces, and constrained path planning.",
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/Barderus/eVTOL_Air_Route",
+      },
+    ],
+  },
+];
+
+export const researchAreas = [
+  {
+    period: "Decision-making",
+    title: "Machine learning for decision-making",
+    body:
+      "I am interested in models that help people reason under uncertainty, especially when the output needs to support a real planning or policy decision rather than just optimize a benchmark.",
+  },
+  {
+    period: "Language systems",
+    title: "Natural language processing",
+    body:
+      "NLP is one of my main research directions, especially where language models can support credibility assessment, interpretation, and structured understanding of noisy information.",
+  },
+  {
+    period: "Misinformation",
+    title: "Misinformation and bot detection",
+    body:
+      "I want to work on systems that identify misleading or coordinated behavior while also making the model's reasoning legible enough to inspect and critique.",
+  },
+].map((area) => ({
+  ...area,
+  role: "Research direction",
+  description: area.body,
+}));
+
+export const teachingTimeline = [
+  {
+    period: "Teaching assistant work",
+    title: "College of DuPage classroom support",
+    role: "Instruction, office hours, grading, and project guidance",
+    description:
+      "I have supported courses in database applications and introductory Java, with a focus on helping students move from concept recognition to actual implementation.",
+  },
+  {
+    period: "Workshops",
+    title: "Humble Data and Orange Data Mining sessions",
+    role: "Facilitator and technical guide",
+    description:
+      "These workshops focused on making data tools approachable through guided, hands-on sessions for learners with mixed backgrounds.",
+  },
+  {
+    period: "Student community",
+    title: "CS Club involvement and technical programming",
+    role: "Organizer, advisor, and support role",
+    description:
+      "Community work matters to me because learning often happens outside the classroom. I enjoy helping technical spaces stay welcoming and active.",
+  },
+  {
+    period: "Events and public-facing work",
+    title: "ASA DataFest, career panel moderation, and outreach",
+    role: "Organizer, judge, moderator, and facilitator",
+    description:
+      "I have also worked on event-facing roles that connect students and early-career learners with broader analytics and computing communities.",
+  },
+];
+
+export const projectTimeline = selectedProjects.map((project) => ({
+  period: project.period,
+  title: project.title,
+  role: project.summary,
+  description: project.context,
+  impact: project.impact,
+  methods: project.methods,
+  links: project.links,
+}));
+
+export const contactEntries = [
+  {
+    title: "Email",
+    value: profileLinks.email.value,
+    description: "Best for collaboration, teaching, research, or speaking opportunities.",
+    action: profileLinks.email.action,
+    label: "Start an email",
+  },
+  {
+    title: "LinkedIn",
+    value: profileLinks.linkedin.value,
+    description: "Professional profile and a direct way to stay in touch.",
+    href: profileLinks.linkedin.href,
+    label: "Open LinkedIn",
+  },
+  {
+    title: "GitHub",
+    value: profileLinks.github.value,
+    description: "Repositories for projects, research prototypes, and experiments.",
+    href: profileLinks.github.href,
+    label: "Open GitHub",
+  },
+  {
+    title: "Resume",
+    value: profileLinks.resume.value,
+    description: "Available through a short request form.",
+    to: profileLinks.resume.to,
+    label: "Request resume",
+  },
 ];
 
 export const featuredProjects = [
@@ -257,7 +470,7 @@ export const pageContent = {
     title: "Work",
     eyebrow: "Projects and research",
     intro:
-      "Projects and research live together here so the portfolio is faster to scan. Each card is tagged by type and keeps the focus on the problem, method, and outcome.",
+      "Projects and research live together here so the portfolio is faster to scan. These entries keep the focus on the problem, method, and outcome.",
     cards: [
       {
         title: "Recession Prediction",
