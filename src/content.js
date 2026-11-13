@@ -258,18 +258,6 @@ const runItProject = {
   methods: ["Discord Bot", "Software Development"],
 };
 
-const portfolioWebsiteProject = {
-  title: "Portfolio Website",
-  summary:
-    "A responsive personal portfolio for presenting software projects, research, teaching, and academic engagement.",
-  context:
-    "Built within a component-based React architecture using Vite, React Router, and Framer Motion, with content-driven pages and responsive styling.",
-  impact:
-    "Creates a central, maintainable presentation of technical work and professional experience for academic and industry audiences.",
-  methods: ["React", "Vite", "React Router", "Framer Motion", "CSS"],
-  links: [{ label: "GitHub", href: "https://github.com/Barderus/portfolio-website" }],
-};
-
 export const workAreas = [
   {
     id: "machine-learning",
@@ -305,7 +293,6 @@ export const workAreas = [
       projectByTitle("Job Market Dashboard"),
       projectByTitle("Dungeons and the Ur-Dragon"),
       runItProject,
-      portfolioWebsiteProject,
     ],
   },
 ];
