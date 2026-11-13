@@ -1,86 +1,75 @@
 import { motion } from "framer-motion";
-import ActionLink from "../components/ActionLink";
-import TimelineList from "../components/TimelineList";
-import {
-  homeHero,
-  identitySections,
-  projectTimeline,
-  researchAreas,
-  teachingTimeline,
-} from "../content";
+import { Link } from "react-router-dom";
+import { profileLinks } from "../content";
+
+const workLinks = [
+  { title: "Machine Learning & Predictive Analytics", description: "Predictive modeling, data analysis, and practical applications.", to: "/work#machine-learning" },
+  { title: "Natural Language Processing & Explainable AI", description: "Misinformation detection and interpretable machine learning.", to: "/work#natural-language-processing" },
+  { title: "Intelligent Systems & Optimization", description: "Reinforcement learning, routing, and decision-making.", to: "/work#intelligent-systems" },
+  { title: "Software Development & Data Applications", description: "Applications, games, and data-driven tools.", to: "/work#software-development" },
+];
+
+const beyondLinks = [
+  { title: "Teaching & Mentorship", description: "Course instruction, student support, and hands-on technical workshops.", to: "/teaching" },
+  { title: "Research Interests", description: "Research questions and ongoing work in machine learning and intelligent systems.", to: "/research" },
+  { title: "About Me", description: "Academic background, professional experience, and other activities.", to: "/about" },
+];
+
+function LinkList({ items }) {
+  return (
+    <div className="home-link-list">
+      {items.map((item) => (
+        <Link className="home-topic-link" to={item.to} key={item.title}>
+          <span>
+            <strong>{item.title}</strong>
+            <small>{item.description}</small>
+          </span>
+          <span className="home-link-arrow" aria-hidden="true">→</span>
+        </Link>
+      ))}
+    </div>
+  );
+}
 
 function HomePage() {
   return (
-    <div className="home-page editorial-home">
-      <motion.section
-        className="editorial-hero"
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-      >
-        <div className="editorial-hero-copy editorial-hero-copy-wide">
-          <p className="section-label">{homeHero.eyebrow}</p>
-          <h1>{homeHero.title}</h1>
-
-          <div className="hero-actions">
-            {homeHero.links.map((link) => (
-              <ActionLink
-                key={link.label}
-                item={link}
-                className={link.variant === "secondary" ? "button button-secondary" : "button button-primary"}
-              />
-            ))}
-          </div>
-        </div>
-      </motion.section>
-
-      <section className="editorial-section">
-        <div className="editorial-section-heading">
-          <p className="section-label">About</p>
-          <h2>About me</h2>
-        </div>
-
-        <div className="identity-list">
-          {identitySections.map((section) => (
-            <article className="identity-line" key={section.title}>
-              <h3>{section.title}</h3>
-              <p>{section.body}</p>
-            </article>
-          ))}
+    <motion.div
+      className="home-page home-compact"
+      initial={{ opacity: 0, y: 14 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+    >
+      <section className="home-introduction" aria-labelledby="home-title">
+        <h1 id="home-title">Gabriel dos Reis</h1>
+        <p className="home-subtitle">Computer Science · Data Science · Applied AI</p>
+        <div className="home-intro-copy">
+          <p>I&apos;m a Computer Science graduate from Lewis University and currently work as an Adjunct Faculty / Teaching Assistant at College of DuPage.</p>
+          <p>My interests span machine learning, reinforcement learning, software development, and applied research. I enjoy working on problems that combine technical challenges with practical applications.</p>
         </div>
       </section>
 
-      <section className="editorial-section">
-        <div className="editorial-section-heading editorial-section-heading-split">
-          <div>
-            <p className="section-label">Selected work</p>
-            <h2>Projects that best represent how I think and build.</h2>
-          </div>
+      <section className="home-directory" aria-labelledby="explore-work">
+        <div className="home-section-heading">
+          <p>Selected areas</p>
+          <h2 id="explore-work">Explore My Work</h2>
         </div>
-
-        <TimelineList items={projectTimeline} />
+        <LinkList items={workLinks} />
       </section>
 
-      <section className="editorial-section editorial-section-two-column">
-        <div className="editorial-section-heading">
-          <p className="section-label">Research</p>
-          <h2>Research questions that I want to keep pursuing in graduate work.</h2>
+      <section className="home-directory" aria-labelledby="beyond-projects">
+        <div className="home-section-heading">
+          <p>More</p>
+          <h2 id="beyond-projects">Beyond Projects</h2>
         </div>
-
-        <TimelineList items={researchAreas} />
+        <LinkList items={beyondLinks} />
       </section>
 
-      <section className="editorial-section editorial-section-stack">
-        <div className="editorial-section-heading editorial-section-heading-split">
-          <div>
-            <p className="section-label">Teaching and community</p>
-            <h2>The other half of my work is helping people learn, participate, and grow.</h2>
-          </div>
-        </div>
-
-        <TimelineList items={teachingTimeline} />
-      </section>
-    </div>
+      <nav className="home-external-links" aria-label="External and contact links">
+        <a href={profileLinks.github.href} target="_blank" rel="noreferrer">GitHub</a>
+        <a href={profileLinks.linkedin.href} target="_blank" rel="noreferrer">LinkedIn</a>
+        <Link to="/contact">Contact</Link>
+      </nav>
+    </motion.div>
   );
 }
 

@@ -1,9 +1,25 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
+import { useLocation } from "react-router-dom";
 import Breadcrumbs from "../components/Breadcrumbs";
 import ProjectCollection from "../components/ProjectCollection";
 import { workAreas } from "../content";
 
 function WorkPage() {
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (!hash) {
+      window.scrollTo({ top: 0, behavior: "auto" });
+      return;
+    }
+
+    const target = document.getElementById(hash.slice(1));
+    if (target) {
+      window.requestAnimationFrame(() => target.scrollIntoView({ block: "start" }));
+    }
+  }, [hash]);
+
   return (
     <motion.section
       className="section page-detail"
