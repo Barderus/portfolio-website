@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import Breadcrumbs from "../components/Breadcrumbs";
-import TimelineList from "../components/TimelineList";
-import { projectTimeline } from "../content";
+import ProjectCollection from "../components/ProjectCollection";
+import { workAreas } from "../content";
 
 function WorkPage() {
   return (
@@ -15,14 +15,15 @@ function WorkPage() {
 
       <div className="section-heading section-heading-wide">
         <p>Selected work</p>
-        <h2>Projects</h2>
+        <h2>Research &amp; Projects</h2>
       </div>
 
       <p className="page-intro">
-        A focused set of projects across prediction, NLP, dashboards, and applied research.
+        A collection of my work in machine learning, data science, software development, and
+        applied research.
       </p>
 
-      <TimelineList items={projectTimeline} />
+      <ProjectCollection areas={workAreas} />
     </motion.section>
   );
 }

@@ -49,8 +49,8 @@ export const profileLinks = {
 };
 
 export const homeHero = {
-  eyebrow: "Computer science, data science, teaching, and research",
-  title: "Aspiring data scientist focused on social good and data-driven decisions.",
+  eyebrow: "Reinforcement learning, applied AI, teaching, and research",
+  title: "Building intelligent systems for shared decisions and practical impact.",
   links: [
     { label: "Selected Work", to: "/work", variant: "primary" },
     { label: "Research", to: "/research", variant: "secondary" },
@@ -63,7 +63,7 @@ export const identitySections = [
   {
     title: "I build data-driven projects",
     body:
-      "My portfolio spans predictive modeling, geospatial analysis, dashboards, and explainable NLP. I like projects that connect technical depth with practical decisions.",
+      "My portfolio spans reinforcement learning, simulation, predictive modeling, geospatial analysis, and software projects. I like work that connects technical depth with practical decisions.",
   },
   {
     title: "I teach and support students",
@@ -78,116 +78,103 @@ export const identitySections = [
   {
     title: "I'm preparing for graduate research",
     body:
-      "I am especially drawn to machine learning and NLP questions around misinformation, explainability, and data-driven decision-making that have real social stakes.",
+      "I am especially drawn to reinforcement learning, multi-agent systems, and applied AI questions where individual decisions interact with shared outcomes.",
   },
 ];
 
 export const selectedProjects = [
   {
-    period: "Predictive modeling",
-    title: "March Madness Kaggle Predictor",
+    period: "Sports Analytics • Kaggle Competition",
+    title: "March Madness Kaggle Prediction",
     summary:
-      "Tournament prediction built from regular-season data, engineered matchup features, and model comparison workflows.",
+      "A team-based machine learning project predicting NCAA March Madness tournament outcomes using historical basketball data, engineered team statistics, and classification models.",
     context:
-      "This project reflects how I approach messy competitive prediction problems: define a usable pipeline, test features quickly, and keep the model grounded in interpretable basketball signals.",
-    methods: ["Python", "Feature engineering", "Predictive modeling", "Sports analytics"],
+      "Collaborated with a team to build a prediction workflow using regular-season statistics, Massey ratings, and engineered matchup features. We compared classification models, including Random Forest and XGBoost, and optimized predictions for the Kaggle competition.",
+    methods: ["Python", "Scikit-learn", "XGBoost", "Feature Engineering"],
     impact:
-      "Demonstrates a fast experimentation workflow for turning noisy historical game data into a structured prediction system.",
-    links: [
-      {
-        label: "GitHub",
-        href: "https://github.com/Barderus/MarchMadness-Kaggle",
-      },
-    ],
+      "Ranked 827th out of 3,462 competition entries, placing in approximately the top 24%.",
+    links: [{ label: "View on GitHub", href: "https://github.com/Barderus/MarchMadness-Kaggle" }],
   },
   {
-    period: "Economic forecasting",
-    title: "Recession Prediction with Macroeconomic Indicators",
+    period: "Academic Research • Machine Learning",
+    title: "Recession Identification with Machine Learning",
     summary:
-      "A recession forecasting project centered on economic policy uncertainty, macroeconomic indicators, and interpretable machine learning models.",
+      "An interdisciplinary research project investigating recession identification across four advanced economies using macroeconomic indicators, Economic Policy Uncertainty, and machine learning.",
     context:
-      "I was interested in recession prediction as more than an academic exercise. The stronger framing is decision support under uncertainty: how can a model surface risk clearly enough to inform planning?",
-    methods: ["Python", "Time series", "Macroeconomics", "Interpretable ML"],
+      "Conducted faculty-mentored research comparing country-specific and pooled Logistic Regression, Random Forest, XGBoost, and neural-network models. The study uses purged leave-one-recession-out evaluation, SHAP explanations, and feature ablation to assess performance, interpretability, and the incremental value of EPU.",
+    methods: ["Python", "XGBoost", "LSTM", "SHAP", "Macroeconomics"],
     impact:
-      "Shows how modeling can be used to reason about uncertainty in a way that remains legible to non-specialists.",
-    links: [
-      {
-        label: "GitHub",
-        href: "https://github.com/Barderus/Recession_Prediction",
-      },
-    ],
+      "The highest observed country-level ROC-AUC scores ranged from 0.828 to 0.978. Neither country-specific nor pooled models consistently performed better, and EPU's additional value depended on the country and model architecture.",
+    links: [{ label: "View on GitHub", href: "https://github.com/Barderus/Recession_Prediction" }],
   },
   {
-    period: "NLP and misinformation",
-    title: "TrustNet / Fake News Detection",
+    period: "Natural Language Processing • Machine Learning",
+    title: "TrustNet — Fake News & Stance Detection",
     summary:
-      "An explainable NLP tool that evaluates trustworthiness and surfaces why a piece of text was flagged by the model.",
+      "An explainable NLP application combining fake news classification and stance detection to analyze news content and provide interpretable model predictions.",
     context:
-      "This project sits close to my longer-term interests. I care about NLP systems that do more than produce a label and instead help users understand credibility, reasoning, and uncertainty.",
-    methods: ["NLP", "Classification", "Explainability", "Misinformation analysis"],
+      "Developed and evaluated traditional machine learning, deep learning, and transformer-based models using news datasets and the Fake News Challenge stance task. The project combines text preprocessing, feature engineering, model calibration, explainability, and an interactive Streamlit interface.",
+    methods: ["Python", "NLP", "Transformers", "Explainable AI", "Streamlit"],
     impact:
-      "Represents my research direction around misinformation detection, model transparency, and human-readable outputs.",
-    links: [
-      {
-        label: "GitHub",
-        href: "https://github.com/Barderus/TrustNet",
-      },
-    ],
+      "Combined news classification, stance detection, and model interpretability into an application for examining predictions and the features influencing them.",
+    links: [{ label: "View on GitHub", href: "https://github.com/Barderus/TrustNet" }],
   },
   {
-    period: "Dashboard analytics",
+    period: "Data Analytics • Data Engineering",
     title: "Job Market Dashboard",
     summary:
-      "A labor analytics project that studies roles, skills, salaries, and geography through a dashboard-oriented workflow.",
+      "A data analytics project exploring U.S. technology job market trends, including hiring demand, salary distributions, technical skills, and geographic differences.",
     context:
-      "This work reflects a different but important side of my practice: building analysis that helps broad audiences understand complicated patterns through clear visuals and summaries.",
-    methods: ["Dashboards", "Visualization", "Labor data", "Analytics"],
+      "Developed Python workflows for web scraping, cleaning, and integrating job-posting datasets, alongside SQL scripts for transformation and analysis. The project includes exploratory analysis, visualizations, and a Streamlit dashboard prototype for comparing job-market trends.",
+    methods: ["Python", "SQL", "Pandas", "Web Scraping", "Streamlit"],
     impact:
-      "Demonstrates how technical analysis can become more actionable when paired with readable presentation.",
-    links: [
-      {
-        label: "GitHub",
-        href: "https://github.com/Barderus/job-market-dashboard",
-      },
-    ],
+      "Built the foundation of an end-to-end analytics pipeline connecting job-posting collection, data processing, SQL analysis, and interactive reporting.",
+    links: [{ label: "View on GitHub", href: "https://github.com/Barderus/job-market-dashboard" }],
   },
   {
-    period: "Aviation systems",
-    title: "eVTOL / Air Route Risk Modeling",
+    period: "Geospatial Analysis • Optimization",
+    title: "eVTOL Air Route Risk Modeling",
     summary:
-      "Low-altitude route analysis around Chicago using population density, airspace constraints, flight-density costs, and A* pathfinding.",
+      "A geospatial research project investigating risk-aware route planning for urban air mobility using population density, airspace restrictions, and operational constraints.",
     context:
-      "This project combines research framing with applied optimization. I was interested in how routing decisions change once real operational constraints enter the system.",
-    methods: ["Geospatial analysis", "Routing", "Optimization", "Aviation systems"],
+      "Developed a grid-based routing environment combining geographic datasets, population-density estimates, and airspace restrictions. Implemented A* pathfinding with weighted risk factors to compare routes under different cost priorities and illustrate urban air mobility tradeoffs.",
+    methods: ["Python", "GeoPandas", "A*", "GIS", "Optimization"],
     impact:
-      "Demonstrates systems thinking across data, cost surfaces, and constrained path planning.",
-    links: [
-      {
-        label: "GitHub",
-        href: "https://github.com/Barderus/eVTOL_Air_Route",
-      },
-    ],
+      "Created a spatial routing model that incorporates population exposure and airspace constraints, demonstrating how different risk priorities influence route selection.",
+    links: [{ label: "View on GitHub", href: "https://github.com/Barderus/eVTOL_Air_Route" }],
+  },
+  {
+    period: "Software Development • Game Development",
+    title: "Dungeons and the Ur-Dragon",
+    summary:
+      "A Python-based, turn-based RPG featuring party combat, magic, inventory management, and rule-based enemy AI, with an experimental graphical implementation using Pygame.",
+    context:
+      "Designed a modular combat system using Python classes for characters, spells, items, inventories, and battle interactions. Implemented randomized damage, critical hits, resource management, enemy targeting, and an experimental graphical version with Pygame animations and sprites.",
+    methods: ["Python", "Object-Oriented Programming", "Pygame", "Game Logic"],
+    impact:
+      "Implemented a playable terminal RPG with multiple encounters, party management, and enemy AI, alongside an experimental Pygame graphical prototype.",
+    links: [{ label: "View on GitHub", href: "https://github.com/Barderus/Dungeons-and-the-Ur-Dragon/tree/main" }],
   },
 ];
 
 export const researchAreas = [
   {
-    period: "Decision-making",
-    title: "Machine learning for decision-making",
+    period: "Learning and control",
+    title: "Reinforcement learning",
     body:
-      "I am interested in models that help people reason under uncertainty, especially when the output needs to support a real planning or policy decision rather than just optimize a benchmark.",
+      "I am interested in how agents learn policies through interaction, especially when rewards are delayed, constraints matter, and the objective extends beyond a benchmark score.",
   },
   {
-    period: "Language systems",
-    title: "Natural language processing",
+    period: "Shared environments",
+    title: "Multi-agent reinforcement learning",
     body:
-      "NLP is one of my main research directions, especially where language models can support credibility assessment, interpretation, and structured understanding of noisy information.",
+      "My current work explores decentralized agents whose actions affect one another, including reward design, coordination, and the tension between local incentives and shared outcomes.",
   },
   {
-    period: "Misinformation",
-    title: "Misinformation and bot detection",
+    period: "Real-world systems",
+    title: "Applied AI",
     body:
-      "I want to work on systems that identify misleading or coordinated behavior while also making the model's reasoning legible enough to inspect and critique.",
+      "I want to translate AI methods into useful systems for environmental, economic, and social questions while keeping assumptions, tradeoffs, and limitations visible.",
   },
 ].map((area) => ({
   ...area,
@@ -197,32 +184,32 @@ export const researchAreas = [
 
 export const teachingTimeline = [
   {
-    period: "Teaching assistant work",
-    title: "College of DuPage classroom support",
-    role: "Instruction, office hours, grading, and project guidance",
+    period: "Teaching • 2026–Present",
+    title: "Adjunct Faculty / Teaching Assistant — College of DuPage",
+    role: "CIS 1400 • CIS 1221 • CIS 1230 • CIS 2571",
     description:
-      "I have supported courses in database applications and introductory Java, with a focus on helping students move from concept recognition to actual implementation.",
+      "Support Programming Logic and Technique, Data Analysis with Spreadsheets, Database Application, and Introduction to Java through classroom assistance, assignment evaluation, office hours, and individual guidance. Help students develop practical programming and problem-solving skills. Contributed to the design of AI and robotics programs and courses.",
   },
   {
     period: "Workshops",
-    title: "Humble Data and Orange Data Mining sessions",
-    role: "Facilitator and technical guide",
+    title: "Data Science & Technical Workshops",
+    role: "Humble Data • Orange Data Mining",
     description:
-      "These workshops focused on making data tools approachable through guided, hands-on sessions for learners with mixed backgrounds.",
+      "Facilitated hands-on workshops introducing data analysis and visualization tools to participants with different technical backgrounds. Sessions included Humble Data at College of DuPage in October 2025, Orange Data Mining in April 2026, and a second Humble Data workshop in April 2026. Emphasized accessible, practical learning through guided exercises.",
   },
   {
-    period: "Student community",
-    title: "CS Club involvement and technical programming",
-    role: "Organizer, advisor, and support role",
+    period: "Student Leadership",
+    title: "Computer Science Club — College of DuPage",
+    role: "Faculty Co-Advisor • Advisor of the Year nominee",
     description:
-      "Community work matters to me because learning often happens outside the classroom. I enjoy helping technical spaces stay welcoming and active.",
+      "Help organize technical workshops, student activities, and career-focused events. Support student engagement and connect club members with learning and professional development opportunities. Received a nomination for Advisor of the Year for this work.",
   },
   {
-    period: "Events and public-facing work",
-    title: "ASA DataFest, career panel moderation, and outreach",
-    role: "Organizer, judge, moderator, and facilitator",
+    period: "Community Engagement",
+    title: "Academic Events & Outreach",
+    role: "ASA DataFest • Career Panels • Student Outreach",
     description:
-      "I have also worked on event-facing roles that connect students and early-career learners with broader analytics and computing communities.",
+      "Served as an organizer and judge for ASA DataFest and moderated the Data Analytics Career Panel on May 2, 2026. Support student collaboration and engagement with computing and data science communities through academic and professional events.",
   },
 ];
 
@@ -235,6 +222,93 @@ export const projectTimeline = selectedProjects.map((project) => ({
   methods: project.methods,
   links: project.links,
 }));
+
+const projectByTitle = (title) => selectedProjects.find((project) => project.title === title);
+
+const pokemonProject = {
+  title: "Pokémon Analysis",
+  summary:
+    "A classification project exploring the attributes that distinguish legendary Pokémon from the rest of the dataset.",
+  context:
+    "Used exploratory analysis, feature engineering, clustering, and leakage-aware modeling pipelines to compare Pokémon statistics and metadata.",
+  impact:
+    "Demonstrates a disciplined classification workflow on an approachable dataset, with attention to feature leakage and model interpretation.",
+  methods: ["Python", "Scikit-learn", "Pandas", "Classification", "Clustering"],
+  links: [{ label: "GitHub", href: "https://github.com/Barderus/pokemon-analysis" }],
+};
+
+const regionalPollutionProject = {
+  title: "Regional Pollution MARL",
+  summary:
+    "A simulated four-region environment for studying how independent agents balance local interests with shared environmental outcomes.",
+  context:
+    "Compares local, global, and mixed reward structures across emissions coordination and economic sustainability studies using independent Q-learning agents.",
+  impact:
+    "Provides an experimental framework for examining coordination, spillover effects, and the tradeoff between regional priorities and system-wide outcomes.",
+  methods: ["Python", "Multi-Agent Reinforcement Learning", "Q-Learning", "Simulation"],
+  links: [{ label: "GitHub", href: "https://github.com/Barderus/regional-pollution-marl" }],
+};
+
+const runItProject = {
+  title: "RUN IT Discord Bot",
+  summary: "A Discord bot software project included in my software-development portfolio.",
+  context:
+    "The current portfolio source does not yet contain a verified technical description or public repository link for this project.",
+  impact: "Project details will be expanded after the implementation and repository information are verified.",
+  methods: ["Discord Bot", "Software Development"],
+};
+
+const portfolioWebsiteProject = {
+  title: "Portfolio Website",
+  summary:
+    "A responsive personal portfolio for presenting software projects, research, teaching, and academic engagement.",
+  context:
+    "Built within a component-based React architecture using Vite, React Router, and Framer Motion, with content-driven pages and responsive styling.",
+  impact:
+    "Creates a central, maintainable presentation of technical work and professional experience for academic and industry audiences.",
+  methods: ["React", "Vite", "React Router", "Framer Motion", "CSS"],
+  links: [{ label: "GitHub", href: "https://github.com/Barderus/portfolio-website" }],
+};
+
+export const workAreas = [
+  {
+    id: "machine-learning",
+    title: "Machine Learning & Predictive Analytics",
+    description:
+      "Exploring predictive models, statistical methods, and data-driven approaches to understanding complex problems.",
+    projects: [
+      projectByTitle("Recession Identification with Machine Learning"),
+      projectByTitle("March Madness Kaggle Prediction"),
+      pokemonProject,
+    ],
+  },
+  {
+    id: "natural-language-processing",
+    title: "Natural Language Processing & Explainable AI",
+    description:
+      "Exploring natural language processing, misinformation detection, and techniques for interpreting machine learning predictions.",
+    projects: [projectByTitle("TrustNet — Fake News & Stance Detection")],
+  },
+  {
+    id: "intelligent-systems",
+    title: "Intelligent Systems & Optimization",
+    description:
+      "Applying algorithms and reinforcement learning to routing, coordination, and decision-making problems.",
+    projects: [projectByTitle("eVTOL Air Route Risk Modeling"), regionalPollutionProject],
+  },
+  {
+    id: "software-development",
+    title: "Software Development & Data Applications",
+    description:
+      "Building software applications, data processing tools, and interactive systems using a variety of programming technologies.",
+    projects: [
+      projectByTitle("Job Market Dashboard"),
+      projectByTitle("Dungeons and the Ur-Dragon"),
+      runItProject,
+      portfolioWebsiteProject,
+    ],
+  },
+];
 
 export const contactEntries = [
   {
@@ -268,6 +342,34 @@ export const contactEntries = [
 ];
 
 export const featuredProjects = [
+  {
+    title: "Regional Pollution MARL",
+    category: "Research",
+    description:
+      "A four-region simulation exploring how local, global, and mixed rewards shape decentralized pollution mitigation and sustainability decisions.",
+    tags: ["MARL", "Q-Learning", "Simulation", "Reward Design"],
+    result:
+      "Tests how independent agents balance regional priorities with shared environmental outcomes.",
+    visualType: "network",
+    links: [
+      { label: "View Work", to: "/work" },
+      { label: "GitHub", href: "https://github.com/Barderus/regional-pollution-marl", variant: "secondary" },
+    ],
+  },
+  {
+    title: "Dungeons and the Ur-Dragon",
+    category: "Projects",
+    description:
+      "A Python turn-based RPG combining party combat, magic, inventory, dungeon progression, rule-based enemy behavior, and a Pygame prototype.",
+    tags: ["Python", "OOP", "Game Systems", "Pygame"],
+    result:
+      "Connects object-oriented design with a playable set of interdependent combat and progression systems.",
+    visualType: "branch",
+    links: [
+      { label: "View Work", to: "/work" },
+      { label: "GitHub", href: "https://github.com/Barderus/Dungeons-and-the-Ur-Dragon/tree/main", variant: "secondary" },
+    ],
+  },
   {
     title: "Recession Prediction with EPU and Machine Learning",
     category: "Research",
@@ -333,47 +435,25 @@ export const featuredProjects = [
       },
     ],
   },
-  {
-    title: "TrustNet / Fake News Detection",
-    category: "Projects",
-    description:
-      "An explainable NLP tool that evaluates trustworthiness and surfaces why a piece of text was flagged by the model.",
-    tags: ["NLP", "Explainability", "Classification", "Misinformation"],
-    result:
-      "Emphasizes transparent scoring and readable model reasoning instead of a black-box output.",
-    visualType: "network",
-    imageSources: publicImages(
-      "trustnet_average_word_length_1.png",
-      "trustnet_average_word_length_2.png",
-    ),
-    links: [
-      { label: "View Work", to: "/work" },
-      {
-        label: "GitHub",
-        href: "https://github.com/Barderus/TrustNet",
-        variant: "secondary",
-      },
-    ],
-  },
 ];
 
 export const focusAreas = [
   {
-    title: "Forecasting & Uncertainty",
+    title: "Reinforcement Learning",
     description:
-      "I am interested in models that help people reason under uncertainty, especially when the cost of being wrong affects planning and policy.",
+      "I study how agents learn from interaction when decisions unfold over time, rewards are delayed, and uncertainty shapes the outcome.",
     visualType: "chart",
     showPreview: false,
   },
   {
-    title: "NLP & Misinformation",
+    title: "Multi-Agent Systems",
     description:
-      "I care about language systems that do more than classify text. They should also help users understand credibility, framing, and model reasoning.",
+      "I am especially interested in coordination, reward design, and the tradeoffs that appear when independent agents share an environment.",
     visualType: "network",
     showPreview: false,
   },
   {
-    title: "Applied Data Systems",
+    title: "Applied AI",
     description:
       "I like end-to-end work that connects data pipelines, modeling, visualization, and decision support into something people can actually use.",
     visualType: "dashboard",
@@ -472,6 +552,30 @@ export const pageContent = {
     intro:
       "Projects and research live together here so the portfolio is faster to scan. These entries keep the focus on the problem, method, and outcome.",
     cards: [
+      {
+        title: "Regional Pollution MARL",
+        category: "Research",
+        meta: "Multi-agent reinforcement learning | environmental simulation",
+        description:
+          "A four-region simulation that compares local, global, and mixed rewards as independent agents make pollution mitigation and economic sustainability decisions.",
+        tags: ["Research", "MARL", "Q-Learning", "Reward Design", "Simulation"],
+        result:
+          "Builds a controlled setting for studying coordination, spillover effects, and the tradeoff between regional priorities and shared outcomes.",
+        visualType: "network",
+        links: [{ label: "GitHub", href: "https://github.com/Barderus/regional-pollution-marl" }],
+      },
+      {
+        title: "Dungeons and the Ur-Dragon",
+        category: "Project",
+        meta: "Python | object-oriented design | game development",
+        description:
+          "A turn-based RPG with party combat, spells, consumable items, dungeon progression, and rule-based enemy decisions, plus an experimental Pygame interface.",
+        tags: ["Project", "Python", "OOP", "Game Systems", "Pygame"],
+        result:
+          "Grew from an OOP exercise into a playable system connecting characters, combat, inventory, progression, and enemy behavior.",
+        visualType: "branch",
+        links: [{ label: "GitHub", href: "https://github.com/Barderus/Dungeons-and-the-Ur-Dragon/tree/main" }],
+      },
       {
         title: "Recession Prediction",
         category: "Research",
@@ -573,30 +677,9 @@ export const pageContent = {
         ],
       },
       {
-        title: "TrustNet",
-        category: "Project",
-        meta: "NLP | misinformation detection",
-        description:
-          "An explainable fake-news analysis tool that scores trustworthiness and surfaces why the model flagged the text the way it did.",
-        tags: ["Project", "NLP", "Explainability", "Trust Scoring", "ML"],
-        result:
-          "Keeps interpretability central so the system feels more useful than a one-number classification.",
-        visualType: "network",
-        imageSources: publicImages(
-          "trustnet_average_word_length_1.png",
-          "trustnet_average_word_length_2.png",
-        ),
-        links: [
-          {
-            label: "GitHub",
-            href: "https://github.com/Barderus/TrustNet",
-          },
-        ],
-      },
-      {
         title: "UFO Data Analysis",
         category: "Project",
-        meta: "EDA | geospatial analysis | NLP",
+        meta: "EDA | geospatial analysis | text analysis",
         description:
           "Large-scale UFO sighting analysis using temporal trends, mapping, and text analysis to turn an unusual dataset into interpretable patterns.",
         tags: ["Project", "Geospatial", "Text Analysis", "EDA", "Visualization"],
@@ -614,42 +697,92 @@ export const pageContent = {
     ],
   },
   teaching: {
-    title: "Teaching",
-    eyebrow: "Instruction and mentorship",
+    title: "Teaching & Academic Engagement",
+    eyebrow: "College of DuPage",
     intro:
-      "My teaching experience centers on practical student support: grading, office hours, technical guidance, and assignment design that helps students apply concepts rather than memorize them.",
+      "My academic work at College of DuPage spans classroom instruction, program development, technical workshops, student advising, and community-facing events.",
     cards: [
       {
-        title: "CIS 1230 | Database Application",
-        meta: "TA support | databases | student guidance",
+        title: "Adjunct Faculty / Teaching Assistant",
+        meta: "College of DuPage | 2026–Present",
         description:
-          "Supported a relational database management course covering database design, creation, maintenance, forms, reports, queries, macros, and application development.",
-        tags: ["Databases", "Office Hours", "Assessment", "Student Support"],
+          "Support CIS 1400 Programming Logic and Technique, CIS 1221 Data Analysis with Spreadsheets, CIS 1230 Database Application, and CIS 2571 Introduction to Java through classroom assistance, evaluation, office hours, and individual guidance.",
+        tags: ["Programming Logic", "Spreadsheets", "Database Applications", "Java"],
         result:
-          "Focused on helping students connect database concepts to usable applications and course projects.",
+          "Also contributed to the design of AI and robotics programs and courses.",
         visualType: "dashboard",
         showPreview: false,
       },
       {
-        title: "CIS 2571 | Introduction to Java",
-        meta: "TA support | Java | project-based learning",
+        title: "Computer Science Club Co-Advisor",
+        meta: "Student leadership | Advisor of the Year nominee",
         description:
-          "Supported an introductory Java course covering encapsulation, class design, objects, polymorphism, and GUI components, while also creating project-based assignments.",
-        tags: ["Java", "Project-Based Learning", "TA Work", "Curriculum"],
+          "Help organize technical workshops, student activities, and career-focused events while connecting members with learning and professional development opportunities.",
+        tags: ["Faculty Advising", "Student Leadership", "Events", "Professional Development"],
         result:
-          "Emphasized implementation-based learning so students could practice concepts through actual program design.",
-        visualType: "document",
+          "Nominated for Advisor of the Year in recognition of this work.",
+        visualType: "constellation",
         showPreview: false,
       },
       {
-        title: "Workshops and Data Literacy",
-        meta: "Facilitation | technical communication | outreach",
+        title: "Humble Data Workshops",
+        meta: "College of DuPage and Lewis University | 2025–2026",
         description:
-          "Workshop sessions in approachable data tools, data literacy, and visual analytics that complement formal course support.",
-        tags: ["Workshops", "Data Literacy", "Facilitation"],
+          "Led hands-on data literacy sessions at two institutions and returned for a second College of DuPage workshop, adapting the material for learners with different backgrounds.",
+        tags: ["Workshops", "Data Literacy", "Cross-Campus", "Facilitation"],
+        result:
+          "Made practical data work approachable through guided exercises, live explanation, and repeatable workflows.",
         visualType: "signal",
-        showPreview: false,
+        imageSources: publicImages(
+          "humble_data_cod_2025.jpg",
+          "humble_data_lewis_2025_1.jpg",
+          "humble_data_lewis_2025_2.jpg",
+          "humble_data_cod_2026.jpg",
+        ),
         links: [{ label: "View Workshops", to: "/workshops" }],
+      },
+      {
+        title: "Orange Data Mining Workshop",
+        meta: "Visual analytics | approachable machine learning | April 2026",
+        description:
+          "Introduced participants to Orange through a guided visual workflow for exploring data and understanding machine learning concepts without requiring a code-first entry point.",
+        tags: ["Orange", "Visual Analytics", "Machine Learning", "Technical Communication"],
+        result:
+          "Used visual workflows to lower the barrier to experimentation while keeping the analytical reasoning visible.",
+        visualType: "dashboard",
+        imageSources: publicImages("orange_data_mining.jpg", "orange_data_mining_2.jpg"),
+        links: [{ label: "View Workshops", to: "/workshops" }],
+      },
+      {
+        title: "CS Club Co-Advisor",
+        meta: "Student leadership | advising | community building",
+        description:
+          "Support student-led technical programming, event coordination, and continuity for a learning community that gives students room to collaborate outside formal coursework.",
+        tags: ["Leadership", "Advising", "Community", "Student Programs"],
+        result:
+          "Helps sustain an active, welcoming technical community and gives student organizers support without taking ownership away from them.",
+        visualType: "constellation",
+        showPreview: false,
+        links: [{ label: "View Leadership", to: "/leadership" }],
+      },
+      {
+        title: "DataFest, Career Panels, and Outreach",
+        meta: "Organizer | judge | moderator | facilitator",
+        description:
+          "Organized and judged ASA DataFest, moderated career conversations, and supported events that connect students with practitioners and broader analytics communities.",
+        tags: ["DataFest", "Moderation", "Judging", "Outreach"],
+        result:
+          "Extends teaching beyond course content by helping students present work, ask better questions, and see pathways into technical careers.",
+        visualType: "constellation",
+        imageSources: publicImages(
+          "asa_datafest_2026.jpg",
+          "asa_datafest_2026_2.jpg",
+          "asa_datafest_2026_3.jpg",
+          "career_panel_2026.jpg",
+          "career_panel_2026_1.jpg",
+          "career_panel_2026_2.jpg",
+        ),
+        links: [{ label: "View Related Activities", to: "/other" }],
       },
     ],
   },

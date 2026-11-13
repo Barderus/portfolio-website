@@ -14,8 +14,8 @@ function TeachingPage() {
       <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: "Teaching" }]} />
 
       <div className="section-heading section-heading-wide">
-        <p>Teaching and community</p>
-        <h2>Teaching, mentoring, and community work</h2>
+        <p>College of DuPage</p>
+        <h2>Teaching &amp; Academic Engagement</h2>
       </div>
 
       <TimelineList items={teachingTimeline} />
