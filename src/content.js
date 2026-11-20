@@ -1,4 +1,4 @@
-import { obfuscatedEmail, resumeRequestPath } from "./contact";
+import { obfuscatedEmail, resumePath } from "./contact";
 
 export const siteIdentity = {
   name: "Gabriel dos Reis",
@@ -33,8 +33,8 @@ export const profileLinks = {
   },
   resume: {
     label: "Resume",
-    to: resumeRequestPath,
-    value: "Request access through a short form",
+    to: resumePath,
+    value: "View or download my CV",
   },
   github: {
     label: "GitHub",
@@ -322,7 +322,7 @@ export const contactEntries = [
   {
     title: "Resume",
     value: profileLinks.resume.value,
-    description: "Available through a short request form.",
+    description: "View or download my CV.",
     to: profileLinks.resume.to,
     label: "Request resume",
   },

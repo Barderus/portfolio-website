@@ -4,7 +4,7 @@ import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import ResearchPage from "./pages/ResearchPage";
-import ResumeRequestPage from "./pages/ResumeRequestPage";
+import ResumePage from "./pages/ResumePage";
 import SectionPage from "./pages/SectionPage";
 import TeachingPage from "./pages/TeachingPage";
 import WorkPage from "./pages/WorkPage";
@@ -20,7 +20,8 @@ function App() {
           <Route path="/research" element={<ResearchPage />} />
           <Route path="/teaching" element={<TeachingPage />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="/resume-request" element={<ResumeRequestPage />} />
+          <Route path="/resume" element={<ResumePage />} />
+          <Route path="/resume-request" element={<ResumePage />} />
           <Route path="/:slug" element={<SectionPage />} />
         </Route>
       </Routes>

@@ -2,7 +2,7 @@ const EMAIL_USER = "reis.sev";
 const EMAIL_DOMAIN = "gmail.com";
 
 export const obfuscatedEmail = "reis.sev [at] gmail [dot] com";
-export const resumeRequestPath = "/resume-request";
+export const resumePath = "/resume";
 
 export function getEmailAddress() {
   return `${EMAIL_USER}@${EMAIL_DOMAIN}`;
